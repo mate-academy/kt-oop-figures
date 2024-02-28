@@ -1,0 +1,9 @@
+build:
+  maxIssues: 0
+
+empty-blocks:
+  EmptyClassBlock:
+    active: false
+style:
+  UnusedPrivateProperty:
+    active: false
