@@ -13,7 +13,8 @@ class Circle(private val radius: Double, color: Color) : Figure(color), AreaCalc
 
     override fun draw() {
         println(
-            "Figure: circle, area: ${calculateArea()} sq. units, radius: $radius units, color: ${color.name.lowercase()}"
+            "Figure: circle, area: ${calculateArea()} sq. units, radius: $radius units, " +
+                    "color: ${color.name.lowercase()}"
         )
     }
 }
