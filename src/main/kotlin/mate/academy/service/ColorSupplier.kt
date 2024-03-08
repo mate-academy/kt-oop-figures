@@ -1,7 +1,7 @@
 package mate.academy.service
 
-import mate.academy.model.Color
 import kotlin.random.Random
+import mate.academy.model.enums.Color
 
 class ColorSupplier {
     fun getRandomColor(): Color {
