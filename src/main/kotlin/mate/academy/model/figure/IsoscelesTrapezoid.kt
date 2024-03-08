@@ -6,6 +6,8 @@ import mate.academy.model.enums.Color
 import mate.academy.service.interfaces.AreaCalculator
 import mate.academy.service.interfaces.Drawable
 
+private const val ZERO_POINT_FIVE = 0.5
+
 class IsoscelesTrapezoid(
     private val shortBase: Double,
     private val longBase: Double,
@@ -17,7 +19,7 @@ class IsoscelesTrapezoid(
             val base = longBase - shortBase
             return round(sqrt(leg * leg - base * base))
         }
-        return 0.5 * (shortBase + longBase) * calculateHeight()
+        return ZERO_POINT_FIVE * (shortBase + longBase) * calculateHeight()
     }
 
     override fun draw() {
