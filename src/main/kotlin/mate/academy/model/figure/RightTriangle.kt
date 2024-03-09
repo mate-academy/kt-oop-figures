@@ -7,7 +7,7 @@ class RightTriangle(
     private val firstLeg: Int,
     private val secondLeg: Int,
     private val color: Color
-) : Figure(color) {
+) : Figure() {
     override fun draw() = println("There’s a right triangle drawn with $color color!")
 
     override fun calculateArea() = (firstLeg * secondLeg) / 2

@@ -7,7 +7,7 @@ class Rectangle(
     private val sideA: Int,
     private val sideB: Int,
     private val color: Color
-) : Figure(color) {
+) : Figure() {
     override fun draw() = println("There’s a rectangle drawn with $color color!")
 
     override fun calculateArea() = sideA * sideB

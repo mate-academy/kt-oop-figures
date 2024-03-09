@@ -6,7 +6,7 @@ import mate.academy.model.Figure
 class Circle(
     private val radius: Int,
     private val color: Color
-) : Figure(color) {
+) : Figure() {
     override fun draw() = println("There’s a circle drawn with $color color!")
 
     override fun calculateArea() = (radius * radius * Math.PI).toInt()

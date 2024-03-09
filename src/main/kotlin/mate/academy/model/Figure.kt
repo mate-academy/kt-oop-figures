@@ -1,6 +1,6 @@
 package mate.academy.model
 
-abstract class Figure(color: Color) : Figural {
+abstract class Figure : Figural {
     abstract override fun draw()
 
     abstract override fun calculateArea(): Int

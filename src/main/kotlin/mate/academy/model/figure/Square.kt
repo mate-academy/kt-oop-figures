@@ -6,7 +6,7 @@ import mate.academy.model.Figure
 class Square(
     private val sideA: Int,
     private val color: Color
-) : Figure(color) {
+) : Figure() {
     override fun draw() = println("There’s a square drawn with $color color!")
 
     override fun calculateArea() = sideA * sideA

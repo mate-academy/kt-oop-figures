@@ -8,7 +8,7 @@ class IsoscelesTrapezoid(
     private val bottomParallel: Int,
     private val height: Int,
     private val color: Color
-) : Figure(color) {
+) : Figure() {
     override fun draw() = println("There’s a isosceles trapezoid drawn with $color color!")
 
     override fun calculateArea() = (topParallel + bottomParallel) / 2 * height
