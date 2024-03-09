@@ -1,18 +1,23 @@
 package mate.academy.model.figure
 
 import mate.academy.model.Color
-import mate.academy.model.Figural
 import mate.academy.model.Figure
 
 class IsoscelesTrapezoid(
-    private val topParallel: Double,
-    private val bottomParallel: Double,
-    private val height: Double,
+    private val topParallel: Int,
+    private val bottomParallel: Int,
+    private val height: Int,
     private val color: Color
-) : Figure(color), Figural {
-    override fun draw() {
-        println("There’s a Isosceles trapezoid drawn with $color color!")
-    }
+) : Figure(color) {
+    override fun draw() = println("There’s a isosceles trapezoid drawn with $color color!")
 
-    override fun calculateArea(): Double = (topParallel + bottomParallel) / 2 * height
+    override fun calculateArea() = (topParallel + bottomParallel) / 2 * height
+
+    override fun getDescription(): String {
+        return "isosceles trapezoid, area: ${calculateArea()} sq. units, " +
+                "top parallel: $topParallel units, " +
+                "bottom parallel: $bottomParallel units, " +
+                "height: $height units, " +
+                "color: $color."
+    }
 }

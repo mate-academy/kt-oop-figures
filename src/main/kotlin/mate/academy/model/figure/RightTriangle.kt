@@ -1,19 +1,21 @@
 package mate.academy.model.figure
 
 import mate.academy.model.Color
-import mate.academy.model.Figural
 import mate.academy.model.Figure
 
 class RightTriangle(
-    private val firstLeg: Double,
-    private val secondLeg: Double,
+    private val firstLeg: Int,
+    private val secondLeg: Int,
     private val color: Color
-) : Figure(color), Figural {
+) : Figure(color) {
+    override fun draw() = println("There’s a right triangle drawn with $color color!")
 
-    override fun draw() {
-        println("There’s a right triangle drawn with $color color!")
+    override fun calculateArea() = (firstLeg * secondLeg) / 2
+
+    override fun getDescription(): String {
+        return "right triangle, area: ${calculateArea()} sq. units, " +
+                "first leg: $firstLeg units, " +
+                "second leg: $secondLeg units, " +
+                "color: $color."
     }
-
-    override fun calculateArea(): Double = (firstLeg * secondLeg) / 2
-
 }
