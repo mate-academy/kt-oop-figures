@@ -3,5 +3,7 @@ package mate.academy.model
 interface Figural {
     fun draw()
 
-    fun calculateArea(): Double
+    fun calculateArea(): Int
+
+    fun getDescription(): String
 }
