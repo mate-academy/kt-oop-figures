@@ -11,7 +11,7 @@ fun main() {
        figureArr[i] = FigureSupplier().getRandomFigure()
        figureArr[i]?.draw()
    }
-   for (i in figureArr.size.div(2) until figureArr.size) {
+   for (i in figureArr.size.div(HALF) until figureArr.size) {
        figureArr[i] = FigureSupplier().getDefaultFigure()
        figureArr[i]?.draw()
    }
