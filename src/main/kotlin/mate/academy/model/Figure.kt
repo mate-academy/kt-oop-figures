@@ -1,9 +1,9 @@
 package mate.academy.model
 
-abstract class Figure : Figural {
-    abstract override fun draw()
+abstract class Figure {
+    abstract fun draw()
 
-    abstract override fun calculateArea(): Int
+    abstract fun calculateArea(): Int
 
-    abstract override fun getDescription(): String
+    abstract fun getDescription(): String
 }
