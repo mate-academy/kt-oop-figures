@@ -3,49 +3,54 @@ package mate.academy.service
 import mate.academy.model.Circle
 import mate.academy.model.Color
 import mate.academy.model.Figure
+import mate.academy.model.Figures
 import mate.academy.model.IsoscelesTrapezoid
-import mate.academy.model.Number
-import mate.academy.model.RightTriangle
 import mate.academy.model.Rectangle
+import mate.academy.model.RightTriangle
 import mate.academy.model.Square
+
 import kotlin.random.Random.Default.nextInt
+
+const val MAX_SIZE: Int = 15
+const val MIN_SIZE: Int = 1
+const val DEFAULT_SIZE: Int = 10
 
 class FigureSupplier {
     val colorSupplier: ColorSupplier = ColorSupplier()
 
     fun getDefaultFigure(): Figure {
-        return Circle(Color.WHITE, Number.DEFAULT_SIZE.value)
+        return Circle(Color.WHITE, DEFAULT_SIZE)
     }
 
     fun getRandomFigure(): Figure {
-        return when (nextInt(Number.FIGURE_COUNT.value)) {
-            Number.RANDOM_ZERO.value -> Circle(
+        return when (Figures.values().random()) {
+            Figures.CIRCLE -> Circle(
                 colorSupplier.getRandomColor(),
-                nextInt(Number.MIN_SIZE.value, Number.MAX_SIZE.value)
+                nextInt(MIN_SIZE, MAX_SIZE)
             )
 
-            Number.RANDOM_ONE.value -> RightTriangle(
+            Figures.RIGHT_TRIANGLE -> RightTriangle(
                 colorSupplier.getRandomColor(),
-                nextInt(Number.MIN_SIZE.value, Number.MAX_SIZE.value),
-                nextInt(Number.MIN_SIZE.value, Number.MAX_SIZE.value)
+                nextInt(MIN_SIZE, MAX_SIZE),
+                nextInt(MIN_SIZE, MAX_SIZE)
             )
 
-            Number.RANDOM_TWO.value -> IsoscelesTrapezoid(
+            Figures.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(
                 colorSupplier.getRandomColor(),
-                nextInt(Number.MIN_SIZE.value, Number.MAX_SIZE.value),
-                nextInt(Number.MIN_SIZE.value, Number.MAX_SIZE.value),
-                nextInt(Number.MIN_SIZE.value, Number.MAX_SIZE.value)
+                nextInt(MIN_SIZE, MAX_SIZE),
+                nextInt(MIN_SIZE, MAX_SIZE),
+                nextInt(MIN_SIZE, MAX_SIZE)
             )
 
-            Number.RANDOM_THREE.value -> Rectangle(
+            Figures.RECTANGLE -> Rectangle(
                 colorSupplier.getRandomColor(),
-                nextInt(Number.MIN_SIZE.value, Number.MAX_SIZE.value),
-                nextInt(Number.MIN_SIZE.value, Number.MAX_SIZE.value)
+                nextInt(MIN_SIZE, MAX_SIZE),
+                nextInt(MIN_SIZE, MAX_SIZE)
             )
 
-            else -> Square(
+            Figures.SQUARE -> Square(
                 colorSupplier.getRandomColor(),
-                nextInt(Number.MIN_SIZE.value, Number.MAX_SIZE.value)
+                nextInt(MIN_SIZE, MAX_SIZE)
             )
         }
     }
