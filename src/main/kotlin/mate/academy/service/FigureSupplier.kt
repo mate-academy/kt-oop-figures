@@ -24,12 +24,14 @@ class FigureSupplier {
                 colorOfFigure, random.nextDouble(),
                 random.nextDouble(), random.nextDouble()
             )
+
             Figures.RECTANGLE -> Rectangle(colorOfFigure, random.nextDouble(), random.nextDouble())
             Figures.RIGHTTRIANGLE -> RightTriangle(colorOfFigure, random.nextDouble(), random.nextDouble())
             Figures.SQUARE -> Square(colorOfFigure, random.nextDouble())
         }
         return result
     }
+
     fun getDefaultFigure(): Figure {
         return Circle(Color.WHITE, DEFAULT_RADIUS)
     }

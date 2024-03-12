@@ -6,8 +6,10 @@ class Square(color: Color, val leg: Double) : Figure(color) {
     }
 
     override fun draw() {
-        println("Figure: square: area: ${area()} sq units, " +
-                "radius: $leg units, " +
-                "color: $color")
+        println(
+            "Figure: square: area: ${area()} sq units, " +
+                    "radius: $leg units, " +
+                    "color: $color"
+        )
     }
 }

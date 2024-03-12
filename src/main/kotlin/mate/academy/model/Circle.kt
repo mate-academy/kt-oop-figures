@@ -6,8 +6,10 @@ class Circle(color: Color, val radius: Double) : Figure(color) {
     }
 
     override fun draw() {
-        println("Figure: circle, area: ${area()} sq units, " +
-                "radius: $radius units, " +
-                "color: $color")
+        println(
+            "Figure: circle, area: ${area()} sq units, " +
+                    "radius: $radius units, " +
+                    "color: $color"
+        )
     }
 }

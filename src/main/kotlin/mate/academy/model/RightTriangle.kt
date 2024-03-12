@@ -6,9 +6,11 @@ class RightTriangle(color: Color, val leg1: Double, val leg2: Double) : Figure(c
     }
 
     override fun draw() {
-        println("Figure: rightriangle, area: ${area()} sq units, " +
-                "leg1: $leg1 units, " +
-                "leg2: $leg2 units, " +
-                "color: $color")
+        println(
+            "Figure: rightriangle, area: ${area()} sq units, " +
+                    "leg1: $leg1 units, " +
+                    "leg2: $leg2 units, " +
+                    "color: $color"
+        )
     }
 }
