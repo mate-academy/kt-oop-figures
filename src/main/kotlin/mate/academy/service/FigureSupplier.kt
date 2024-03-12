@@ -15,27 +15,19 @@ const val DEFAULT_SIZE = 10
 
 class FigureSupplier {
 
+    private val colorSupplier = ColorSupplier()
+
+    private fun getRandomSize() = Random.nextInt(BOUND_FOR_RANDOM)
+
     fun getRandomFigure(): Figure {
-        val color = ColorSupplier().getRandomColor()
+        val color = colorSupplier.getRandomColor()
+        val size = getRandomSize()
         return when (FigureType.values().random()) {
-            FigureType.SQUARE -> Square(Random.nextInt(BOUND_FOR_RANDOM), color)
-            FigureType.CIRCLE -> Circle(Random.nextInt(BOUND_FOR_RANDOM), color)
-            FigureType.TRAPEZOID -> IsoscelesTrapezoid(
-                Random.nextInt(BOUND_FOR_RANDOM),
-                Random.nextInt(BOUND_FOR_RANDOM),
-                Random.nextInt(BOUND_FOR_RANDOM),
-                color
-            )
-            FigureType.RECTANGLE -> Rectangle(
-                Random.nextInt(BOUND_FOR_RANDOM),
-                Random.nextInt(BOUND_FOR_RANDOM),
-                color
-            )
-            FigureType.RIGHT_TRIANGLE -> RightTriangle(
-                Random.nextInt(BOUND_FOR_RANDOM),
-                Random.nextInt(BOUND_FOR_RANDOM),
-                color
-            )
+            FigureType.SQUARE -> Square(size, color)
+            FigureType.CIRCLE -> Circle(size, color)
+            FigureType.TRAPEZOID -> IsoscelesTrapezoid(size, size, size, color)
+            FigureType.RECTANGLE -> Rectangle(size, size, color)
+            FigureType.RIGHT_TRIANGLE -> RightTriangle(size, size, color)
         }
     }
 
