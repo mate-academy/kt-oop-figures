@@ -13,7 +13,5 @@ fun main() {
         }
     }
 
-    for (figure in figures) {
-        figure.draw()
-    }
+    figures.forEach { figure -> figure.draw() }
 }
