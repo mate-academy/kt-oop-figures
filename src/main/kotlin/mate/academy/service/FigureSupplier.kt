@@ -1,6 +1,13 @@
 package mate.academy.service
 
-import mate.academy.model.*
+import mate.academy.model.Circle
+import mate.academy.model.Color
+import mate.academy.model.Figure
+import mate.academy.model.Figures
+import mate.academy.model.IsoscelesTrapezoid
+import mate.academy.model.Rectangle
+import mate.academy.model.RightTriangle
+import mate.academy.model.Square
 import java.util.Random
 
 const val DEFAULT_RADIUS = 10.0
@@ -20,7 +27,6 @@ class FigureSupplier {
             Figures.RECTANGLE -> Rectangle(colorOfFigure, random.nextDouble(), random.nextDouble())
             Figures.RIGHTTRIANGLE -> RightTriangle(colorOfFigure, random.nextDouble(), random.nextDouble())
             Figures.SQUARE -> Square(colorOfFigure, random.nextDouble())
-            else -> {getDefaultFigure()}
         }
         return result
     }
