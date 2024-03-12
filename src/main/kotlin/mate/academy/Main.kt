@@ -3,17 +3,16 @@ package mate.academy
 import mate.academy.model.Figure
 import mate.academy.service.FigureSupplier
 
-const val LENGTH = 10
+const val LENGTH_OF_ARRAY = 10
 fun main() {
     val figureSupplier = FigureSupplier()
-    val figures: Array<Figure?> = arrayOfNulls(LENGTH)
-    for (i in 0 until figures.size - 1) {
-        if (i < figures.size / 2) {
-            figures[i] = figureSupplier.getRandomFigure()
+    val array: Array<Figure> = Array(LENGTH_OF_ARRAY){figureSupplier.getDefaultFigure()}
+    for (i in 0 until array.lastIndex) {
+        if (i < array.size / 2) {
+            array[i] = figureSupplier.getRandomFigure()
         } else {
-            figures[i] = figureSupplier.getDefaultFigure()
+            array[i] = figureSupplier.getDefaultFigure()
         }
-        figures[i]?.draw()
+        array[i].draw()
     }
-    // draw all figures here
 }
