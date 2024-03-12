@@ -5,9 +5,10 @@ import mate.academy.service.FigureSupplier
 const val ARRAY_SIZE = 6
 
 fun main() {
-    val array = Array(ARRAY_SIZE) { FigureSupplier().getDefaultFigure() }
+    val figureSupplier = FigureSupplier()
+    val array = Array(ARRAY_SIZE) { figureSupplier.getDefaultFigure() }
     for (i in 0 until array.size / 2) {
-        array[i] = FigureSupplier().getRandomFigure()
+        array[i] = figureSupplier.getRandomFigure()
     }
 
     array.forEachIndexed { index, figure ->
