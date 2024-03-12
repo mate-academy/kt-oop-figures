@@ -5,6 +5,6 @@ import kotlin.random.Random
 
 class ColorSupplier {
     fun getRandomColor(): Color {
-        return Color.values()[Random.nextInt(Color.values().size - 1)]
+        return Color.values()[Random.nextInt(Color.values().size)]
     }
 }
