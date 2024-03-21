@@ -7,6 +7,9 @@ class Rectangle(val length: Double, val width: Double, override val color: Color
     override fun calculateArea(): Double = length * width
 
     override fun draw() {
-        println("Figure: rectangle, area: ${calculateArea()} sq. units, length: $length units, width: $width units, color: $color")
+        println(
+            "Figure: rectangle, area: ${calculateArea()} sq. units," +
+                    " length: $length units, width: $width units, color: $color"
+        )
     }
 }
