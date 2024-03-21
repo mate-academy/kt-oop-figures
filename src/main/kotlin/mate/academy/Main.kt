@@ -6,14 +6,18 @@ import mate.academy.service.FigureSupplier
 fun main() {
     val figureSupplier = FigureSupplier()
     val figures = mutableListOf<Figure>()
+    val numOfRandomFigures = 3
+    val numOfDefaultFigures = 3
 
-    for (i in 1..3) {
+    repeat(numOfRandomFigures) {
         figures.add(figureSupplier.getRandomFigure())
     }
 
-    for (i in 1..3) {
+    repeat(numOfDefaultFigures) {
         figures.add(figureSupplier.getDefaultFigure())
     }
+
+
 
     figures.forEach { it.draw() }
 }

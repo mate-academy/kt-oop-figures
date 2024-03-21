@@ -7,26 +7,37 @@ import kotlin.random.Random
 
 class FigureSupplier {
     private val colorSupplier = ColorSupplier()
+
+    enum class FigureType {
+        SQUARE, RECTANGLE, RIGHT_TRIANGLE, CIRCLE, ISOSCELES_TRAPEZOID
+    }
+
     fun getRandomFigure(): Figure {
-        val random = Random.nextInt(5)
-        return when (random) {
-            0 -> Square(
+        val randomType = FigureType.values().random()
+        return when (randomType) {
+            FigureType.SQUARE -> Square(
                 Random.nextDouble(1.0, 10.0),
-                colorSupplier.getRandomColor())
-            1 -> Rectangle(
-                Random.nextDouble(1.0, 10.0),
-                Random.nextDouble(1.0, 10.0),
-                colorSupplier.getRandomColor())
-            2 -> RightTriangle(
+                colorSupplier.getRandomColor()
+            )
+
+            FigureType.RECTANGLE -> Rectangle(
                 Random.nextDouble(1.0, 10.0),
                 Random.nextDouble(1.0, 10.0),
                 colorSupplier.getRandomColor()
             )
 
-            3 -> Circle(
+            FigureType.RIGHT_TRIANGLE -> RightTriangle(
                 Random.nextDouble(1.0, 10.0),
-                colorSupplier.getRandomColor())
-            else -> IsoscelesTrapezoid(
+                Random.nextDouble(1.0, 10.0),
+                colorSupplier.getRandomColor()
+            )
+
+            FigureType.CIRCLE -> Circle(
+                Random.nextDouble(1.0, 10.0),
+                colorSupplier.getRandomColor()
+            )
+
+            FigureType.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(
                 Random.nextDouble(1.0, 10.0),
                 Random.nextDouble(1.0, 10.0),
                 Random.nextDouble(1.0, 10.0),
