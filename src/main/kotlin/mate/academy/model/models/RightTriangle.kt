@@ -4,7 +4,11 @@ import mate.academy.model.Color
 import mate.academy.model.Figure
 
 class RightTriangle(val firstLeg: Double, val secondLeg: Double, override val color: Color) : Figure {
-    override fun calculateArea(): Double = 0.5 * firstLeg * secondLeg
+    companion object {
+        private const val AREA_FACTOR = 0.5
+    }
+
+    override fun calculateArea(): Double = AREA_FACTOR * firstLeg * secondLeg
 
     override fun draw() {
         println(

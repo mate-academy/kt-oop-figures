@@ -9,7 +9,11 @@ class IsoscelesTrapezoid(
     val height: Double,
     override val color: Color
 ) : Figure {
-    override fun calculateArea(): Double = 0.5 * (upperBase + lowerBase) * height
+    companion object {
+        private const val AREA_FACTOR = 0.5
+    }
+
+    override fun calculateArea(): Double = AREA_FACTOR * (upperBase + lowerBase) * height
 
     override fun draw() {
         println(
