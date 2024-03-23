@@ -2,7 +2,7 @@ package mate.academy.service
 
 import mate.academy.model.Circle
 import mate.academy.model.Figure
-import mate.academy.model.FigureList
+import mate.academy.model.FigureShape
 import mate.academy.model.IsoscelesTrapezoid
 import mate.academy.model.Rectangle
 import mate.academy.model.RightTriangle
@@ -20,17 +20,17 @@ class FigureSupplier {
     }
     fun getRandomFigure(): Figure {
         val color = ColorSupplier()
-        val figure = FigureList.values()[Random.nextInt(FigureList.values().size - 1)]
+        val figure = FigureShape.values()[Random.nextInt(FigureShape.values().size - 1)]
         return when (figure) {
-            FigureList.Circle -> Circle(color.getRandomColor(), Random.nextInt(MIN_VALUE..MAX_VALUE))
-            FigureList.IsoscelesTrapezoid -> IsoscelesTrapezoid(color.getRandomColor(),
+            FigureShape.CIRCLE -> Circle(color.getRandomColor(), Random.nextInt(MIN_VALUE..MAX_VALUE))
+            FigureShape.ISOSCELESTRAPEZOID -> IsoscelesTrapezoid(color.getRandomColor(),
                 Random.nextInt(MIN_VALUE..MAX_VALUE), Random.nextInt(
                 MIN_VALUE..MAX_VALUE), Random.nextInt(MIN_VALUE..MAX_VALUE))
-            FigureList.Rectangle -> Rectangle(color.getRandomColor(),
+            FigureShape.RECTANGLE -> Rectangle(color.getRandomColor(),
                 Random.nextInt(MIN_VALUE..MAX_VALUE), Random.nextInt(MIN_VALUE..MAX_VALUE))
-            FigureList.RightTriangle -> RightTriangle(color.getRandomColor(),
+            FigureShape.RIGHTTRIANGLE -> RightTriangle(color.getRandomColor(),
                 Random.nextInt(MIN_VALUE..MAX_VALUE), Random.nextInt(MIN_VALUE..MAX_VALUE))
-            FigureList.Square -> Square(color.getRandomColor(), Random.nextInt(MIN_VALUE..MAX_VALUE))
+            FigureShape.SQUARE -> Square(color.getRandomColor(), Random.nextInt(MIN_VALUE..MAX_VALUE))
         }
     }
 }
