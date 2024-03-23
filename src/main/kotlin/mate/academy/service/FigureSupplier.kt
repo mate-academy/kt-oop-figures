@@ -23,15 +23,13 @@ class FigureSupplier {
         val figure = FigureList.values()[Random.nextInt(FigureList.values().size - 1)]
         return when (figure) {
             FigureList.Circle -> Circle(color.getRandomColor(), Random.nextInt(MIN_VALUE..MAX_VALUE))
-            FigureList.IsoscelesTrapezoid -> IsoscelesTrapezoid(color.getRandomColor(), Random.nextInt(MIN_VALUE..MAX_VALUE), Random.nextInt(
+            FigureList.IsoscelesTrapezoid -> IsoscelesTrapezoid(color.getRandomColor(),
+                Random.nextInt(MIN_VALUE..MAX_VALUE), Random.nextInt(
                 MIN_VALUE..MAX_VALUE), Random.nextInt(MIN_VALUE..MAX_VALUE))
-
-            FigureList.Rectangle -> Rectangle(color.getRandomColor(), Random.nextInt(MIN_VALUE..MAX_VALUE), Random.nextInt(
-                MIN_VALUE..MAX_VALUE))
-
-            FigureList.RightTriangle -> RightTriangle(color.getRandomColor(), Random.nextInt(MIN_VALUE..MAX_VALUE), Random.nextInt(
-                MIN_VALUE..MAX_VALUE))
-
+            FigureList.Rectangle -> Rectangle(color.getRandomColor(),
+                Random.nextInt(MIN_VALUE..MAX_VALUE), Random.nextInt(MIN_VALUE..MAX_VALUE))
+            FigureList.RightTriangle -> RightTriangle(color.getRandomColor(),
+                Random.nextInt(MIN_VALUE..MAX_VALUE), Random.nextInt(MIN_VALUE..MAX_VALUE))
             FigureList.Square -> Square(color.getRandomColor(), Random.nextInt(MIN_VALUE..MAX_VALUE))
         }
     }
