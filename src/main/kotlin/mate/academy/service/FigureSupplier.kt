@@ -1,62 +1,35 @@
 package mate.academy.service
 
 import mate.academy.model.Figure
-import mate.academy.model.FigureType
 import mate.academy.model.Color
 import mate.academy.model.Circle
 import mate.academy.model.Rectangle
 import mate.academy.model.RightTriangle
 import mate.academy.model.IsoscelesTrapezoid
 import mate.academy.model.Square
-import kotlin.random.Random
 
-private const val MIN_SIDE: Int = 10
-private const val MAX_SIDE: Int = 100
 private const val DEFAULT_RADIUS: Int = 10
 
 class FigureSupplier {
-    private val colorSupplier = ColorSupplier()
-
-    fun getRandomFigure(): Figure {
-        val randomColor = colorSupplier.getRandomColor()
-        val randomFigureType = FigureType.values().random()
-        return when (randomFigureType) {
-            FigureType.SQUARE -> generateRandomSquare(randomColor)
-            FigureType.CIRCLE -> generateRandomCircle(randomColor)
-            FigureType.RECTANGLE -> generateRandomRectangle(randomColor)
-            FigureType.RIGHT_TRIANGLE -> generateRandomRightTriangle(randomColor)
-            FigureType.ISOSCELES_TRAPEZOID -> generateRandomIsoscelesTrapezoid(randomColor)
-        }
+    fun generateSquare(color: Color, side: Int): Figure {
+        return Square(color, side)
     }
 
-    private fun generateRandomSquare(color: Color): Figure = Square(
-        color,
-        Random.nextInt(MIN_SIDE, MAX_SIDE)
-    )
+    fun generateCircle(color: Color, radius: Int): Figure {
+        return Circle(color, radius)
+    }
 
-    private fun generateRandomCircle(color: Color): Figure = Circle(
-        color,
-        Random.nextInt(MIN_SIDE, MAX_SIDE)
-    )
+    fun generateIsoscelesTrapezoid(color: Color, topBase: Int, bottomBase: Int, height: Int): Figure {
+        return IsoscelesTrapezoid(color, topBase, bottomBase, height)
+    }
 
-    private fun generateRandomIsoscelesTrapezoid(color: Color): Figure = IsoscelesTrapezoid(
-        color,
-        Random.nextInt(MIN_SIDE, MAX_SIDE),
-        Random.nextInt(MIN_SIDE, MAX_SIDE),
-        Random.nextInt(MIN_SIDE, MAX_SIDE)
-    )
+    fun generateRectangle(color: Color, width: Int, height: Int): Figure {
+        return Rectangle(color, width, height)
+    }
 
-    private fun generateRandomRectangle(color: Color): Figure = Rectangle(
-        color,
-        Random.nextInt(MIN_SIDE, MAX_SIDE),
-        Random.nextInt(MIN_SIDE, MAX_SIDE)
-    )
-
-    private fun generateRandomRightTriangle(color: Color): Figure = RightTriangle(
-        color,
-        Random.nextInt(MIN_SIDE, MAX_SIDE),
-        Random.nextInt(MIN_SIDE, MAX_SIDE)
-    )
+    fun generateRightTriangle(color: Color, base: Int, height: Int): Figure {
+        return RightTriangle(color, base, height)
+    }
 
     fun getDefaultFigure(): Figure = Circle(radius = DEFAULT_RADIUS, color = Color.WHITE)
 }
