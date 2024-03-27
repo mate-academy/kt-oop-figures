@@ -13,8 +13,7 @@ class RandomFigureSupplier {
 
     fun getRandomFigure(): Figure {
         val randomColor = colorSupplier.getRandomColor()
-        val randomFigureType = FigureType.values().random()
-        return when (randomFigureType) {
+        return when (FigureType.values().random()) {
             FigureType.SQUARE -> generateRandomSquare(randomColor)
             FigureType.CIRCLE -> generateRandomCircle(randomColor)
             FigureType.RECTANGLE -> generateRandomRectangle(randomColor)
