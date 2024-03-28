@@ -3,8 +3,10 @@ package mate.academy.model
 private const val DIVIDER = 2.0
 
 class IsoscelesTrapezoid(
-    color: Color, val firstBase: Int,
-    val secondBase: Int, val height: Int
+    color: Color,
+    val firstBase: Int,
+    val secondBase: Int,
+    val height: Int
 ) : Figure(color) {
 
     override fun getArea(): Double {
@@ -22,5 +24,3 @@ class IsoscelesTrapezoid(
         )
     }
 }
-
-

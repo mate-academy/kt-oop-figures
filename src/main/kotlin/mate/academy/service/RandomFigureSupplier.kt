@@ -7,6 +7,7 @@ import kotlin.random.Random
 
 private const val MIN_SIDE: Int = 10
 private const val MAX_SIDE: Int = 100
+
 class RandomFigureSupplier {
     private val figureSupplier = FigureSupplier()
     private val colorSupplier = ColorSupplier()
@@ -50,6 +51,7 @@ class RandomFigureSupplier {
         val height = nextIntInRange()
         return figureSupplier.generateRightTriangle(color, base, height)
     }
+
     private fun nextIntInRange(min: Int= MIN_SIDE, max: Int= MAX_SIDE): Int {
         return Random.nextInt(min, max)
     }
