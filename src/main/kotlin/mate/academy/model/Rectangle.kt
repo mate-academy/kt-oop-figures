@@ -1,7 +1,8 @@
 package mate.academy.model
 
 class Rectangle(
-    color: Color, private val firstSide: Int,
+    color: Color,
+    private val firstSide: Int,
     private val secondSide: Int
 ) : Figure(color) {
     override fun getArea(): Double {
@@ -17,4 +18,3 @@ class Rectangle(
         )
     }
 }
-

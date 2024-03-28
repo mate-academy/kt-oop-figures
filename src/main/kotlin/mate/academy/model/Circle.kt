@@ -1,6 +1,9 @@
 package mate.academy.model
 
-class Circle(color: Color, val radius: Int) : Figure(color) {
+class Circle(
+    color: Color,
+    val radius: Int
+) : Figure(color) {
     override fun getArea(): Double {
         return kotlin.math.PI * radius * radius
     }
@@ -12,6 +15,3 @@ class Circle(color: Color, val radius: Int) : Figure(color) {
         )
     }
 }
-
-
-
