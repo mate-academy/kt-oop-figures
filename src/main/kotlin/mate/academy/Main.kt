@@ -2,7 +2,6 @@ package mate.academy
 
 import mate.academy.model.Color
 import mate.academy.service.ColorSupplier
-import java.util.*
 import kotlin.math.PI
 import kotlin.math.pow
 import kotlin.random.Random
@@ -13,6 +12,14 @@ private const val MAX_RANDOM_VALUE = 10.0
 private const val DEFAULT_CIRCLE_RADIUS = 10.0
 private const val FIGURES_COUNT = 6
 private const val RANDOM_FIGURES_COUNT = 3
+
+enum class FigureType {
+    SQUARE,
+    RECTANGLE,
+    RIGHT_TRIANGLE,
+    CIRCLE,
+    ISOSCELES_TRAPEZOID
+}
 
 abstract class Figure(val color: Color) {
     abstract fun area(): Double
@@ -93,43 +100,32 @@ class IsoscelesTrapezoid(
 
 class FigureSupplier {
     private val colorSupplier = ColorSupplier()
-    private val figureTypesStack = Stack<String>()
-
-    init {
-        figureTypesStack.push("Square")
-        figureTypesStack.push("Rectangle")
-        figureTypesStack.push("RightTriangle")
-        figureTypesStack.push("Circle")
-        figureTypesStack.push("IsoscelesTrapezoid")
-    }
 
     fun getRandomFigure(): Figure {
         val color = colorSupplier.getRandomColor()
-        return when (val figureType = figureTypesStack.pop()) {
-            "Square" -> Square(Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE), color)
+        return when (FigureType.values().random()) {
+            FigureType.SQUARE -> Square(Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE), color)
 
-            "Rectangle" -> Rectangle(
+            FigureType.RECTANGLE -> Rectangle(
                 Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
                 Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
                 color
             )
 
-            "RightTriangle" -> RightTriangle(
+            FigureType.RIGHT_TRIANGLE -> RightTriangle(
                 Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
                 Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
                 color
             )
 
-            "Circle" -> Circle(Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE), color)
+            FigureType.CIRCLE -> Circle(Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE), color)
 
-            "IsoscelesTrapezoid" -> IsoscelesTrapezoid(
+            FigureType.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(
                 Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
                 Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
                 Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
                 color
             )
-
-            else -> throw IllegalArgumentException("Unknown figure type: $figureType")
         }
     }
 
