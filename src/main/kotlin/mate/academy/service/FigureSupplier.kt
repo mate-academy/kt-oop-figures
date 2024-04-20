@@ -1,7 +1,14 @@
 package mate.academy.service
 
-import mate.academy.model.*
-import mate.academy.model.impl.*
+
+import mate.academy.model.Color
+import mate.academy.model.Figure
+import mate.academy.model.FigureType
+import mate.academy.model.impl.Circle
+import mate.academy.model.impl.IsoscelesTrapezoid
+import mate.academy.model.impl.Rectangle
+import mate.academy.model.impl.RightTriangle
+import mate.academy.model.impl.Square
 import kotlin.random.Random
 
 private const val MIN_SIZE: Double = 5.0
