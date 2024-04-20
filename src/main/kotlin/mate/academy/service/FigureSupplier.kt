@@ -17,7 +17,7 @@ class FigureSupplier {
         val randomColor: Color = colorSupplier.getRandomColor()
         val randomIndex: Int = Random.nextInt(FigureType.values().size - 1)
         return when (FigureType.values()[randomIndex]) {
-            FigureType.RECTANGLE -> generateRandomSquare(randomColor)
+            FigureType.RECTANGLE -> generateRandomRectangle(randomColor)
             FigureType.CIRCLE -> generateRandomCircle(randomColor)
             FigureType.SQUARE -> generateRandomSquare(randomColor)
             FigureType.RIGHT_TRIANGLE -> generateRandomRightTriangle(randomColor)
