@@ -3,18 +3,14 @@ package mate.academy.service
 import mate.academy.model.Circle
 import mate.academy.model.Color
 import mate.academy.model.Figure
+import mate.academy.model.FigureType
 import mate.academy.model.IsoscelesTrapezoid
 import mate.academy.model.Rectangle
 import mate.academy.model.RightTriangle
 import mate.academy.model.Square
 import kotlin.random.Random
 
-const val NUMBER_OF_FIGURE_TYPES = 5
 const val DEFAULT_RADIUS = 10.0
-const val INDEX_OF_CIRCLE = 0
-const val INDEX_OF_ISOSCELES_TRAPEZOID = 1
-const val INDEX_OF_RECTANGLE = 2
-const val INDEX_OF_RIGHT_TRIANGLE = 3
 
 class FigureSupplier {
     private val random = Random.Default
@@ -22,18 +18,20 @@ class FigureSupplier {
 
     fun getRandomFigure(): Figure {
         val randomColor = colorSupplier.getRandomColor()
+        val randomFigureType = FigureType.values()[Random.nextInt(FigureType.values().size)]
 
-        return when(random.nextInt(NUMBER_OF_FIGURE_TYPES)) {
-            INDEX_OF_CIRCLE
+        return when(randomFigureType) {
+            FigureType.CIRCLE
                 -> Circle(randomColor, random.nextDouble())
-            INDEX_OF_ISOSCELES_TRAPEZOID
+            FigureType.ISOSCELES_TRAPEZOID
                 -> IsoscelesTrapezoid(
                 randomColor, random.nextDouble(), random.nextDouble(), random.nextDouble())
-            INDEX_OF_RECTANGLE
+            FigureType.RECTANGLE
                 -> Rectangle(randomColor, random.nextDouble(), random.nextDouble())
-            INDEX_OF_RIGHT_TRIANGLE
+            FigureType.RIGHT_TRIANGLE
                 -> RightTriangle(randomColor, random.nextDouble(), random.nextDouble())
-            else -> Square(randomColor, random.nextDouble())
+            FigureType.SQUARE
+                -> Square(randomColor, random.nextDouble())
         }
     }
 
