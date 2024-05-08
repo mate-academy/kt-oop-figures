@@ -12,10 +12,12 @@ class Rectangle(
     override fun getArea(): Double = firstSide * secondSide
 
     override fun draw() {
-        println("Figure: IsoscelesTrapezoid, " +
-                "area: ${getArea()} sq.units, " +
-                "firstSide: $firstSide units, " +
-                "secondSide: $secondSide units, " +
-                "color: $color")
+        println(
+            "Figure: IsoscelesTrapezoid, " +
+                    "area: ${getArea()} sq.units, " +
+                    "firstSide: $firstSide units, " +
+                    "secondSide: $secondSide units, " +
+                    "color: $color"
+        )
     }
 }

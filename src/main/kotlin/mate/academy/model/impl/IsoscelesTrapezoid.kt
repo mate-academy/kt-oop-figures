@@ -22,11 +22,13 @@ class IsoscelesTrapezoid(
     }
 
     override fun draw() {
-        println("Figure: IsoscelesTrapezoid, " +
-                "area: ${getArea()} sq.units, " +
-                "sideEdge: $sideEdge units, " +
-                "topSide: $topSide units, " +
-                "downSide: $downSide units, " +
-                "color: $color")
+        println(
+            "Figure: IsoscelesTrapezoid, " +
+                    "area: ${getArea()} sq.units, " +
+                    "sideEdge: $sideEdge units, " +
+                    "topSide: $topSide units, " +
+                    "downSide: $downSide units, " +
+                    "color: $color"
+        )
     }
 }

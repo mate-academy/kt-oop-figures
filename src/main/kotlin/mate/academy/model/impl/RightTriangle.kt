@@ -21,11 +21,13 @@ class RightTriangle(
     }
 
     override fun draw() {
-        println("Figure: IsoscelesTrapezoid, " +
-                "area: ${getArea()} sq.units, " +
-                "firstLeg: $firstLeg units, " +
-                "secondLeg: $secondLeg units, " +
-                "thirdLeg: $thirdLeg units, " +
-                "color: $color")
+        println(
+            "Figure: IsoscelesTrapezoid, " +
+                    "area: ${getArea()} sq.units, " +
+                    "firstLeg: $firstLeg units, " +
+                    "secondLeg: $secondLeg units, " +
+                    "thirdLeg: $thirdLeg units, " +
+                    "color: $color"
+        )
     }
 }

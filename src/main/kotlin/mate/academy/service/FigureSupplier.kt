@@ -13,14 +13,16 @@ import kotlin.random.Random
 private const val MIN_SIZE: Double = 5.0
 private const val MAX_SIZE: Double = 15.0
 private const val DEFAULT_SIZE: Double = 10.0
+
 class FigureSupplier {
     private val colorSupplier: ColorSupplier = ColorSupplier()
 
     fun getDefaultFigure(): Figure = Circle(radius = DEFAULT_SIZE, color = Color.WHITE)
     fun getRandomFigure(): Figure {
         val randomColor: Color = colorSupplier.getRandomColor()
-        val randomIndexType: Int = Random.nextInt(FigureType.values().size - 1)
-        return when (FigureType.values()[randomIndexType]) {
+        val randomIndexType: FigureType = FigureType.values()[Random.nextInt(FigureType.values().size - 1)]
+
+        return when (randomIndexType) {
             FigureType.SQUARE -> generateRandomSquare(randomColor)
             FigureType.RECTANGLE -> generateRandomRectangle(randomColor)
             FigureType.RIGHT_TRIANGLE -> generateRandomRightTriangle(randomColor)
