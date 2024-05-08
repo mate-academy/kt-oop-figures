@@ -1,7 +1,6 @@
 package mate.academy.model.impl
 
 import mate.academy.model.Color
-import mate.academy.model.AreaCalculator
 import mate.academy.model.Figure
 import kotlin.math.sqrt
 
@@ -10,7 +9,7 @@ class RightTriangle(
     private val firstLeg: Double,
     private val secondLeg: Double,
     private val thirdLeg: Double
-) : Figure(color), AreaCalculator {
+) : Figure(color) {
     override fun getArea(): Double {
         val halfPerimeter = (firstLeg + secondLeg + thirdLeg) / 2
         val x = halfPerimeter *

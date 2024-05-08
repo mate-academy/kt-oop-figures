@@ -20,9 +20,9 @@ class FigureSupplier {
     fun getDefaultFigure(): Figure = Circle(radius = DEFAULT_SIZE, color = Color.WHITE)
     fun getRandomFigure(): Figure {
         val randomColor: Color = colorSupplier.getRandomColor()
-        val randomIndexType: FigureType = FigureType.values()[Random.nextInt(FigureType.values().size - 1)]
+        val randomFigureType: FigureType = FigureType.values().random()
 
-        return when (randomIndexType) {
+        return when (randomFigureType) {
             FigureType.SQUARE -> generateRandomSquare(randomColor)
             FigureType.RECTANGLE -> generateRandomRectangle(randomColor)
             FigureType.RIGHT_TRIANGLE -> generateRandomRightTriangle(randomColor)
