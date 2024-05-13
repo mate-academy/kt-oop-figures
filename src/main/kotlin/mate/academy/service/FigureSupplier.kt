@@ -10,18 +10,18 @@ class FigureSupplier {
     fun getRandomFigure(): Figure {
         val figuresQuantity = Figure::class.sealedSubclasses.size
         val randomFigureImplementation = Figure::class.sealedSubclasses[Random.nextInt(figuresQuantity)]
-        return makeRandomInstance(randomFigureImplementation) as Figure
+        return makeRandomInstance(randomFigureImplementation)
     }
 
     @Suppress("SpreadOperator")
-    private fun makeRandomInstance(clazz: KClass<*>): Any {
+    private fun makeRandomInstance(clazz: KClass<*>): Figure {
         val colorSupplier = ColorSupplier()
         val constructor = clazz.primaryConstructor
         val arguments: Array<Any> = constructor!!.parameters
             .map { it.type.classifier as KClass<*> }
             .map { if (it == Color::class) colorSupplier.getRandomColor() else Random.nextInt(SIZE_LIMIT) }
             .toTypedArray()
-        return constructor.call(*arguments)
+        return constructor.call(*arguments) as Figure
     }
 }
 
