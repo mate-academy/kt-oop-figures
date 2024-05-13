@@ -1,5 +1,6 @@
 package mate.academy.service
 
+import mate.academy.model.Circle
 import mate.academy.model.Color
 import mate.academy.model.Figure
 import kotlin.random.Random
@@ -12,6 +13,8 @@ class FigureSupplier {
         val randomFigureImplementation = Figure::class.sealedSubclasses[Random.nextInt(figuresQuantity)]
         return makeRandomInstance(randomFigureImplementation)
     }
+
+    fun getDefaultFigure() = Circle(DEFAULT_SIZE, Color.WHITE)
 
     @Suppress("SpreadOperator")
     private fun makeRandomInstance(clazz: KClass<out Figure>): Figure {
@@ -26,3 +29,4 @@ class FigureSupplier {
 }
 
 const val SIZE_LIMIT = 15
+const val DEFAULT_SIZE = 10
