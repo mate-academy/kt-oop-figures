@@ -4,5 +4,7 @@ import mate.academy.service.FigureSupplier
 
 fun main() {
     val figureSupplier = FigureSupplier()
-    (1..10).forEach() { _ -> println(figureSupplier.getRandomFigure().draw())}
+    repeat(TIMES_TO_REPEAT) { println(figureSupplier.getRandomFigure().draw()) }
 }
+
+const val TIMES_TO_REPEAT = 10
