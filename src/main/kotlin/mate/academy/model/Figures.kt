@@ -3,7 +3,7 @@ package mate.academy.model
 import kotlin.math.PI
 
 sealed class Figure(val color: Color) : Drawable {
-    fun getName() = this.javaClass.simpleName.lowercase()
+    fun getName() = this.javaClass.simpleName.replace(Regex("(?<=\\w)([A-Z])"), " $0").lowercase()
 }
 
 interface Drawable {

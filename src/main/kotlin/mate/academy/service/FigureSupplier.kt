@@ -1,32 +1,28 @@
 package mate.academy.service
 
-import mate.academy.model.Circle
+import mate.academy.model.Color
 import mate.academy.model.Figure
-import mate.academy.model.IsoscelesTrapezoid
-import mate.academy.model.Rectangle
-import mate.academy.model.RightTriangle
-import mate.academy.model.Square
 import kotlin.random.Random
+import kotlin.reflect.KClass
+import kotlin.reflect.full.primaryConstructor
 
 class FigureSupplier {
     fun getRandomFigure(): Figure {
-        val colorSupplier = ColorSupplier()
         val figuresQuantity = Figure::class.sealedSubclasses.size
-        return when (Random.nextInt(figuresQuantity)) {
-            ZERO -> Square(Random.nextInt(SIZE_LIMIT), colorSupplier.getRandomColor())
-            ONE -> Rectangle(Random.nextInt(SIZE_LIMIT), Random.nextInt(SIZE_LIMIT), colorSupplier.getRandomColor())
-            TWO -> RightTriangle(Random.nextInt(SIZE_LIMIT), Random.nextInt(SIZE_LIMIT), colorSupplier.getRandomColor())
-            THREE -> Circle(Random.nextInt(SIZE_LIMIT), colorSupplier.getRandomColor())
-            else -> {
-                IsoscelesTrapezoid(Random.nextInt(SIZE_LIMIT), Random.nextInt(SIZE_LIMIT),
-                    Random.nextInt(SIZE_LIMIT), colorSupplier.getRandomColor())
-            }
-        }
+        val randomFigureImplementation = Figure::class.sealedSubclasses[Random.nextInt(figuresQuantity)]
+        return makeRandomInstance(randomFigureImplementation) as Figure
+    }
+
+    @Suppress("SpreadOperator")
+    private fun makeRandomInstance(clazz: KClass<*>): Any {
+        val colorSupplier = ColorSupplier()
+        val constructor = clazz.primaryConstructor
+        val arguments: Array<Any> = constructor!!.parameters
+            .map { it.type.classifier as KClass<*> }
+            .map { if (it == Color::class) colorSupplier.getRandomColor() else Random.nextInt(SIZE_LIMIT) }
+            .toTypedArray()
+        return constructor.call(*arguments)
     }
 }
 
 const val SIZE_LIMIT = 15
-const val ZERO = 0
-const val ONE = 1
-const val TWO = 2
-const val THREE = 3
