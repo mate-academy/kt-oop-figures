@@ -16,7 +16,7 @@ class FigureSupplier {
         return makeRandomInstance(randomFigureImplementation)
     }
 
-    fun getDefaultFigure() = Circle(DEFAULT_SIZE, Color.WHITE)
+    fun getDefaultFigure() = Circle(DEFAULT_SIZE, colorSupplier.getDefaultColor())
 
     @Suppress("SpreadOperator")
     private fun makeRandomInstance(clazz: KClass<out Figure>): Figure {
