@@ -7,6 +7,10 @@ import kotlin.random.Random
 import kotlin.reflect.KClass
 import kotlin.reflect.full.primaryConstructor
 
+const val MIN_SIZE = 2
+const val MAX_SIZE = 15
+const val DEFAULT_SIZE = 10
+
 class FigureSupplier {
     private val figuresQuantity = Figure::class.sealedSubclasses.size
     private val colorSupplier = ColorSupplier()
@@ -21,14 +25,11 @@ class FigureSupplier {
     @Suppress("SpreadOperator")
     private fun makeRandomInstance(clazz: KClass<out Figure>): Figure {
         val constructor = clazz.primaryConstructor
-        val arguments: Array<Any> = constructor!!.parameters
+            ?: throw IllegalArgumentException("Figure ${clazz.simpleName} implementation is invalid")
+        val arguments: Array<Any> = constructor.parameters
             .map { it.type.classifier as KClass<*> }
             .map { if (it == Color::class) colorSupplier.getRandomColor() else Random.nextInt(MIN_SIZE, MAX_SIZE) }
             .toTypedArray()
         return constructor.call(*arguments)
     }
 }
-
-const val MIN_SIZE = 2
-const val MAX_SIZE = 15
-const val DEFAULT_SIZE = 10
