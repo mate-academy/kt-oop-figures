@@ -9,6 +9,7 @@ import kotlin.reflect.full.primaryConstructor
 
 class FigureSupplier {
     private val figuresQuantity = Figure::class.sealedSubclasses.size
+    private val colorSupplier = ColorSupplier()
 
     fun getRandomFigure(): Figure {
         val randomFigureImplementation = Figure::class.sealedSubclasses[Random.nextInt(figuresQuantity)]
@@ -19,7 +20,6 @@ class FigureSupplier {
 
     @Suppress("SpreadOperator")
     private fun makeRandomInstance(clazz: KClass<out Figure>): Figure {
-        val colorSupplier = ColorSupplier()
         val constructor = clazz.primaryConstructor
         val arguments: Array<Any> = constructor!!.parameters
             .map { it.type.classifier as KClass<*> }
