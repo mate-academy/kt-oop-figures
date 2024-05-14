@@ -3,7 +3,7 @@ package mate.academy.model
 import kotlin.math.PI
 
 sealed class Figure(protected val color: Color) : Drawable, AreaCalculatable {
-    protected fun getName() = this::class.simpleName!!.replace(Regex("(?<=\\w)([A-Z])"), " $0").lowercase()
+    protected fun getName() = this::class.simpleName?.replace(Regex("(?<=\\w)([A-Z])"), " $0")?.lowercase()
 }
 
 interface Drawable {
@@ -53,7 +53,7 @@ class IsoscelesTrapezoid(private val fistBase: Int,
                          private val height: Int, color: Color) : Figure(color) {
     override fun draw() =
             "Figure: ${getName()}, area: ${area()} sq. units, " +
-                "fistBase: $fistBase units, secondBase: $secondBase units, " +
+                "fist base: $fistBase units, second base: $secondBase units, " +
                 "height: $height units, color: ${color.getName()}"
 
     override fun area() = (fistBase + secondBase) / 2 * height
