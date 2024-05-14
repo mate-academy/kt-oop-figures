@@ -8,8 +8,9 @@ import kotlin.reflect.KClass
 import kotlin.reflect.full.primaryConstructor
 
 class FigureSupplier {
+    private val figuresQuantity = Figure::class.sealedSubclasses.size
+
     fun getRandomFigure(): Figure {
-        val figuresQuantity = Figure::class.sealedSubclasses.size
         val randomFigureImplementation = Figure::class.sealedSubclasses[Random.nextInt(figuresQuantity)]
         return makeRandomInstance(randomFigureImplementation)
     }
@@ -22,11 +23,12 @@ class FigureSupplier {
         val constructor = clazz.primaryConstructor
         val arguments: Array<Any> = constructor!!.parameters
             .map { it.type.classifier as KClass<*> }
-            .map { if (it == Color::class) colorSupplier.getRandomColor() else Random.nextInt(SIZE_LIMIT) }
+            .map { if (it == Color::class) colorSupplier.getRandomColor() else Random.nextInt(MIN_SIZE, MAX_SIZE) }
             .toTypedArray()
         return constructor.call(*arguments)
     }
 }
 
-const val SIZE_LIMIT = 15
+const val MIN_SIZE = 2
+const val MAX_SIZE = 15
 const val DEFAULT_SIZE = 10
