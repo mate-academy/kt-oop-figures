@@ -6,8 +6,8 @@ import mate.academy.service.FigureSupplier
 
 fun main() {
     val figureSupplier = FigureSupplier()
-    const val NUM_FIGURES = 6
-    val figures = arrayOfNulls<Figure>(NUM_FIGURES)
+    val numFigures = 6
+    val figures = arrayOfNulls<Figure>(numFigures)
 
     for (i in 0 until figures.size / 2) {
         figures[i] = figureSupplier.getRandomFigure()
