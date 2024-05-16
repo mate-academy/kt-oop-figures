@@ -1,35 +1,31 @@
 package mate.academy.service
 
 import mate.academy.model.Circle
-import mate.academy.model.Color
 import mate.academy.model.Figure
+import mate.academy.model.IsoscelesTrapezoid
+import mate.academy.model.Rectangle
+import mate.academy.model.RightTriangle
+import mate.academy.model.Square
 import kotlin.random.Random
-import kotlin.reflect.KClass
-import kotlin.reflect.full.primaryConstructor
 
 const val MIN_SIZE = 2
 const val MAX_SIZE = 15
 const val DEFAULT_SIZE = 10
 
 class FigureSupplier {
-    private val figuresQuantity = Figure::class.sealedSubclasses.size
     private val colorSupplier = ColorSupplier()
+    private val figuresImplementations = Figure::class.sealedSubclasses
 
     fun getRandomFigure(): Figure {
-        val randomFigureImplementation = Figure::class.sealedSubclasses[Random.nextInt(figuresQuantity)]
-        return makeRandomInstance(randomFigureImplementation)
+        val getRndSize = { Random.nextInt(MIN_SIZE, MAX_SIZE) }
+        return when (figuresImplementations[Random.nextInt(figuresImplementations.size)]) {
+            Square::class -> Square(getRndSize(), colorSupplier.getRandomColor())
+            Rectangle::class -> Rectangle(getRndSize(), getRndSize(), colorSupplier.getRandomColor())
+            RightTriangle::class -> RightTriangle(getRndSize(), getRndSize(), colorSupplier.getRandomColor())
+            Circle::class -> Circle(getRndSize(), colorSupplier.getRandomColor())
+            else -> IsoscelesTrapezoid(getRndSize(), getRndSize(), getRndSize(), colorSupplier.getRandomColor())
+        }
     }
 
     fun getDefaultFigure() = Circle(DEFAULT_SIZE, colorSupplier.getDefaultColor())
-
-    @Suppress("SpreadOperator")
-    private fun makeRandomInstance(clazz: KClass<out Figure>): Figure {
-        val constructor = clazz.primaryConstructor
-            ?: throw IllegalArgumentException("Figure ${clazz.simpleName} implementation is invalid")
-        val arguments: Array<Any> = constructor.parameters
-            .map { it.type.classifier as KClass<*> }
-            .map { if (it == Color::class) colorSupplier.getRandomColor() else Random.nextInt(MIN_SIZE, MAX_SIZE) }
-            .toTypedArray()
-        return constructor.call(*arguments)
-    }
 }
