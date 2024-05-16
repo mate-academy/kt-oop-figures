@@ -1,6 +1,7 @@
 package mate.academy
 
-import mate.academy.model.*
+import mate.academy.model.Circle
+import mate.academy.model.Figure
 import mate.academy.service.FigureSupplier
 
 fun main() {
