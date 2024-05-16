@@ -23,7 +23,10 @@ class FigureSupplier {
             Rectangle::class -> Rectangle(getRndSize(), getRndSize(), colorSupplier.getRandomColor())
             RightTriangle::class -> RightTriangle(getRndSize(), getRndSize(), colorSupplier.getRandomColor())
             Circle::class -> Circle(getRndSize(), colorSupplier.getRandomColor())
-            else -> IsoscelesTrapezoid(getRndSize(), getRndSize(), getRndSize(), colorSupplier.getRandomColor())
+            IsoscelesTrapezoid::class ->
+                IsoscelesTrapezoid(getRndSize(), getRndSize(), getRndSize(), colorSupplier.getRandomColor())
+
+            else -> getDefaultFigure()
         }
     }
 
