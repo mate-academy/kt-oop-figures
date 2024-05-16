@@ -1,20 +1,16 @@
 package mate.academy
 
-import mate.academy.model.Circle
 import mate.academy.model.Figure
 import mate.academy.service.FigureSupplier
 
+const val NUM_FIGURES = 6
+
 fun main() {
     val figureSupplier = FigureSupplier()
-    val numFigures = 6
-    val figures = arrayOfNulls<Figure>(numFigures)
+    val figures = arrayOfNulls<Figure>(NUM_FIGURES)
 
-    for (i in 0 until figures.size / 2) {
-        figures[i] = figureSupplier.getRandomFigure()
-    }
-
-    for (i in figures.size / 2 until figures.size) {
-        figures[i] = figureSupplier.getDefaultFigure()
+    figures.forEachIndexed { index, _ ->
+        figures[index] = if (index < NUM_FIGURES / 2) figureSupplier.getRandomFigure() else figureSupplier.getDefaultFigure()
     }
 
     figures.forEach { it?.draw() }
