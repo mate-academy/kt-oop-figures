@@ -11,7 +11,7 @@ interface Drawable {
 }
 
 interface AreaCalculatable {
-    fun area(): Int
+    fun AreaCalculatable.area(): Int
 }
 
 class Square(private val side: Int, color: Color) : Figure(color) {
@@ -20,7 +20,7 @@ class Square(private val side: Int, color: Color) : Figure(color) {
     override fun draw() =
         "Figure: $name, area: ${area()} sq. units, side: $side units, color: ${color.getName()}"
 
-    override fun area() = side * side
+    override fun AreaCalculatable.area() = side * side
 }
 
 class Rectangle(
@@ -34,7 +34,7 @@ class Rectangle(
         "Figure: $name, area: ${area()} sq. units, " +
                 "fist side: $firstSide units, second side: $secondSide units, color: ${color.getName()}"
 
-    override fun area() = firstSide * secondSide
+    override fun AreaCalculatable.area() = firstSide * secondSide
 }
 
 class RightTriangle(
@@ -47,7 +47,7 @@ class RightTriangle(
     override fun draw() = "Figure: $name, area: ${area()} sq. units, " +
             "fist leg: $firstLeg units, second leg: $secondLeg units, color: ${color.getName()}"
 
-    override fun area() = firstLeg * secondLeg / 2
+    override fun AreaCalculatable.area() = firstLeg * secondLeg / 2
 }
 
 class Circle(private val radius: Int, color: Color) : Figure(color) {
@@ -57,7 +57,7 @@ class Circle(private val radius: Int, color: Color) : Figure(color) {
         "Figure: $name, area: ${area()} sq. units, " +
                 "radius: $radius units, color: ${color.getName()}"
 
-    override fun area() = (PI * radius * radius).toInt()
+    override fun AreaCalculatable.area() = (PI * radius * radius).toInt()
 }
 
 class IsoscelesTrapezoid(
@@ -72,5 +72,5 @@ class IsoscelesTrapezoid(
                 "fist base: $fistBase units, second base: $secondBase units, " +
                 "height: $height units, color: ${color.getName()}"
 
-    override fun area() = (fistBase + secondBase) / 2 * height
+    override fun AreaCalculatable.area() = (fistBase + secondBase) / 2 * height
 }
