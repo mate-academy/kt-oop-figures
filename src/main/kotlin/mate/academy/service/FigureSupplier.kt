@@ -14,11 +14,12 @@ const val DEFAULT_SIZE = 10
 
 class FigureSupplier {
     private val colorSupplier = ColorSupplier()
-    private val figuresImplementations = Figure::class.sealedSubclasses
+    private val figureImplementations = Figure::class.sealedSubclasses
 
     fun getRandomFigure(): Figure {
         val getRndSize = { Random.nextInt(MIN_SIZE, MAX_SIZE) }
-        return when (figuresImplementations[Random.nextInt(figuresImplementations.size)]) {
+
+        return when (figureImplementations.random()) {
             Square::class -> Square(getRndSize(), colorSupplier.getRandomColor())
             Rectangle::class -> Rectangle(getRndSize(), getRndSize(), colorSupplier.getRandomColor())
             RightTriangle::class -> RightTriangle(getRndSize(), getRndSize(), colorSupplier.getRandomColor())
