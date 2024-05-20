@@ -12,7 +12,6 @@ import kotlin.random.Random
 const val DEFAULT_RADIUS = 10
 
 class FigureSupplier(private val colorSupplier: ColorSupplier) {
-
     fun getRandomFigure(): Figure {
         val color = colorSupplier.getRandomColor()
         val randomSide = Random.nextInt()

@@ -3,7 +3,6 @@ package mate.academy.model.figures
 import mate.academy.model.Color
 
 class Rectangle(color: Color, private val firstSide : Int, private val secondSide : Int) : Figure(color) {
-
     override fun getArea() = (firstSide * secondSide).toDouble()
 
     override fun draw() {
