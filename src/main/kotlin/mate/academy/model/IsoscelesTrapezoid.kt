@@ -11,4 +11,12 @@ class IsoscelesTrapezoid(
         private const val DEFAULT_BASE2 = 3.0
         private const val DEFAULT_HEIGHT = 2.0
     }
+
+    override fun area(): Double {
+        return (base1 + base2) * height / 2.0
+    }
+
+    override fun draw() {
+        println("Drawing an isosceles trapezoid with bases $base1 and $base2, height $height, and color $color")
+    }
 }
