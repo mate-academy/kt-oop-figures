@@ -1,6 +1,14 @@
 package mate.academy.model
 
-class IsoscelesTrapezoid(override val color: Color, private val base1: Double, private val base2: Double, private val height: Double) : Figure {
-    override fun area() = 0.5 * (base1 + base2) * height
-    override fun draw() = println("Figure: trapezoid, area: ${area()} sq. units, base1: $base1 units, base2: $base2 units, height: $height units, color: $color")
+class IsoscelesTrapezoid(
+    color: Color,
+    val base1: Double,
+    val base2: Double,
+    val height: Double
+) : Figure(color) {
+    companion object {
+        private const val DEFAULT_BASE1 = 5.0
+        private const val DEFAULT_BASE2 = 3.0
+        private const val DEFAULT_HEIGHT = 2.0
+    }
 }
