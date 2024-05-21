@@ -1,6 +1,11 @@
 package mate.academy.service
 
-import mate.academy.model.*
+import mate.academy.model.Circle
+import mate.academy.model.Color
+import mate.academy.model.IsoscelesTrapezoid
+import mate.academy.model.Rectangle
+import mate.academy.model.RightTriangle
+import mate.academy.model.Square
 import kotlin.random.Random
 
 enum class FigureType {
@@ -21,10 +26,23 @@ class FigureSupplier {
         val color = colorSupplier.getRandomColor()
         return when (FigureType.values().random()) {
             FigureType.SQUARE -> Square(color, Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE))
-            FigureType.RECTANGLE -> Rectangle(color, Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE), Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE))
-            FigureType.RIGHT_TRIANGLE -> RightTriangle(color, Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE), Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE))
+            FigureType.RECTANGLE -> Rectangle(
+                color, 
+                Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
+                Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE)
+            )
+            FigureType.RIGHT_TRIANGLE -> RightTriangle(
+                color, 
+                Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
+                Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE)
+            )
             FigureType.CIRCLE -> Circle(color, Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE))
-            FigureType.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(color, Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE), Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE), Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE))
+            FigureType.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(
+                color, 
+                Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
+                Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE),
+                Random.nextDouble(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE)
+            )
         }
     }
 
