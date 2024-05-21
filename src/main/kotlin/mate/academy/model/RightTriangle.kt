@@ -1,6 +1,12 @@
 package mate.academy.model
 
-class RightTriangle(override val color: Color, private val firstLeg: Double, private val secondLeg: Double) : Figure {
-    override fun area() = 0.5 * firstLeg * secondLeg
-    override fun draw() = println("Figure: triangle, area: ${area()} sq. units, firstLeg: $firstLeg units, secondLeg: $secondLeg units, color: $color")
+class RightTriangle(
+    color: Color,
+    val base: Double,
+    val height: Double
+) : Figure(color) {
+    companion object {
+        private const val DEFAULT_BASE = 3.0
+        private const val DEFAULT_HEIGHT = 4.0
+    }
 }
