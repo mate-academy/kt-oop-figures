@@ -34,7 +34,6 @@ class FigureSupplier {
                 getNonZeroValue(),
                 getNonZeroValue()
             )
-
             else -> getDefaultFigure()
         }
     }
