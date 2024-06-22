@@ -1,35 +1,104 @@
 package mate.academy.model
 
-abstract class Figure(val color: Color) {
-}
+import mate.academy.service.AreaCalculator
+import mate.academy.service.FigurePainter
 
-class Circle(color: Color, radius: Double) : Figure(color), AreaCalculator {
+abstract class Figure(val color: Color) : AreaCalculator, FigurePainter
+
+class Circle(color: Color, private val radius: Double) : Figure(color) {
     override fun getArea(): Double {
-        TODO("Not yet implemented")
+        return Math.PI * radius * radius
+    }
+
+    override fun draw() {
+        println(
+            "Figure: circle, area: "
+                    + getArea()
+                    + " sq. units, radius: "
+                    + radius
+                    + " units, color: "
+                    + color
+        )
     }
 }
 
-class Rectangle(color: Color, firstSide: Double, secondSide: Double) : Figure(color), AreaCalculator {
+class Rectangle(color: Color, private val firstSide: Double, private val secondSide: Double) : Figure(color) {
     override fun getArea(): Double {
-        TODO("Not yet implemented")
+        return firstSide * secondSide
+    }
+
+    override fun draw() {
+        println(
+            "Figure: rectangle, area: "
+                    + getArea()
+                    + " sq. units, firstSide: "
+                    + firstSide
+                    + " units, secondLeg: "
+                    + secondSide
+                    + " units, color: "
+                    + color
+        )
     }
 }
 
-class RightTriangle(color: Color, firstLeg: Double, secondLeg: Double) : Figure(color), AreaCalculator {
+class RightTriangle(color: Color, private val firstLeg: Double, private val secondLeg: Double) : Figure(color) {
     override fun getArea(): Double {
-        TODO("Not yet implemented")
+        return firstLeg * secondLeg / 2
+    }
+
+    override fun draw() {
+        println(
+            "Figure: triangle, area: "
+                    + getArea()
+                    + " sq. units, firstLeg: "
+                    + firstLeg
+                    + " units, secondLeg: "
+                    + secondLeg
+                    + " units, color: "
+                    + color
+        )
     }
 }
 
-class Square(color: Color, side: Double) : Figure(color), AreaCalculator {
+class Square(color: Color, private val side: Double) : Figure(color) {
     override fun getArea(): Double {
-        TODO("Not yet implemented")
+        return side * side
+    }
+
+    override fun draw() {
+        println(
+            "Figure: square, area: "
+                    + getArea()
+                    + " sq. units, side: "
+                    + side
+                    + " units, color: "
+                    + color
+        )
     }
 }
 
-class IsoscelesTrapezoid(color: Color, firstParallel: Double, secondParallel: Double, height: Double) : Figure(color),
-    AreaCalculator {
+class IsoscelesTrapezoid(
+    color: Color,
+    private val firstParallel: Double,
+    private val secondParallel: Double,
+    private val height: Double
+) : Figure(color) {
     override fun getArea(): Double {
-        TODO("Not yet implemented")
+        return height / 2 * (firstParallel + secondParallel)
+    }
+
+    override fun draw() {
+        println(
+            "Figure: isosceles trapezoid, area: "
+                    + getArea()
+                    + " sq. units, height: "
+                    + height
+                    + " units, firstParallel: "
+                    + firstParallel
+                    + " units, secondParallel: "
+                    + secondParallel
+                    + " units, color: "
+                    + color
+        )
     }
 }

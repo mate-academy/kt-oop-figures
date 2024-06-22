@@ -1,4 +1,4 @@
-package mate.academy.model
+package mate.academy.service
 
 interface AreaCalculator {
     fun getArea(): Double
