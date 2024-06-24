@@ -11,14 +11,7 @@ class Circle(color: Color, private val radius: Double) : Figure(color) {
     }
 
     override fun draw() {
-        println(
-            "Figure: circle, area: "
-                    + getArea()
-                    + " sq. units, radius: "
-                    + radius
-                    + " units, color: "
-                    + color
-        )
+        println("Figure: circle, area: ${getArea()} sq. units, radius: $radius units, color: $color")
     }
 }
 
@@ -29,14 +22,8 @@ class Rectangle(color: Color, private val firstSide: Double, private val secondS
 
     override fun draw() {
         println(
-            "Figure: rectangle, area: "
-                    + getArea()
-                    + " sq. units, firstSide: "
-                    + firstSide
-                    + " units, secondLeg: "
-                    + secondSide
-                    + " units, color: "
-                    + color
+            "Figure: rectangle, area: ${getArea()} sq. units, " +
+                    "firstSide: $firstSide units, secondSide: $secondSide units, color: $color"
         )
     }
 }
@@ -48,14 +35,8 @@ class RightTriangle(color: Color, private val firstLeg: Double, private val seco
 
     override fun draw() {
         println(
-            "Figure: triangle, area: "
-                    + getArea()
-                    + " sq. units, firstLeg: "
-                    + firstLeg
-                    + " units, secondLeg: "
-                    + secondLeg
-                    + " units, color: "
-                    + color
+            "Figure: triangle, area: ${getArea()} sq. units, " +
+                    "firstLeg: $firstLeg units, secondLeg: $secondLeg units, color: $color"
         )
     }
 }
@@ -66,14 +47,7 @@ class Square(color: Color, private val side: Double) : Figure(color) {
     }
 
     override fun draw() {
-        println(
-            "Figure: square, area: "
-                    + getArea()
-                    + " sq. units, side: "
-                    + side
-                    + " units, color: "
-                    + color
-        )
+        println("Figure: square, area: ${getArea()} sq. units, side: $side units, color: $color")
     }
 }
 
@@ -89,16 +63,8 @@ class IsoscelesTrapezoid(
 
     override fun draw() {
         println(
-            "Figure: isosceles trapezoid, area: "
-                    + getArea()
-                    + " sq. units, height: "
-                    + height
-                    + " units, firstParallel: "
-                    + firstParallel
-                    + " units, secondParallel: "
-                    + secondParallel
-                    + " units, color: "
-                    + color
+            "Figure: isosceles trapezoid, area: ${getArea()} sq. units, height: $height units, " +
+                    "firstParallel: $firstParallel units, secondParallel: $secondParallel units, color: $color"
         )
     }
 }
