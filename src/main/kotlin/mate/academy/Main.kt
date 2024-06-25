@@ -3,7 +3,7 @@ package mate.academy
 import mate.academy.model.Figure
 import mate.academy.service.FigureSupplier
 
-const val ARRAY_SIZE = 6
+const val ARRAY_SIZE = 8
 val figureSupplier = FigureSupplier()
 
 fun main() {
