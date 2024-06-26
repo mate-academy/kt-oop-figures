@@ -6,7 +6,4 @@ enum class FigureIndex {
     RECTANGLE,
     RIGHT_TRIANGLE,
     ISOSCELES_TRAPEZOID;
-
-    val index: Int
-        get() = this.ordinal
 }

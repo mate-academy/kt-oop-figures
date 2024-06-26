@@ -9,28 +9,29 @@ import mate.academy.model.Rectangle
 import mate.academy.model.RightTriangle
 import mate.academy.model.Square
 import kotlin.random.Random
+import kotlin.random.nextInt
 
 class FigureSupplier {
     private val colorSupplier = ColorSupplier()
 
     companion object {
         const val DEFAULT_RADIUS = 10.0
-        const val MAX_RANDOM_VALUE = 8.0
+        const val MAX_RANDOM_VALUE = 8
     }
 
     fun getRandomFigure(): Figure {
-        return when (Random.nextInt(FigureIndex.values().size)) {
-            FigureIndex.CIRCLE.index -> Circle(colorSupplier.getRandomColor(), getNonZeroValue())
-            FigureIndex.SQUARE.index -> Square(colorSupplier.getRandomColor(), getNonZeroValue())
-            FigureIndex.RECTANGLE.index -> Rectangle(
+        return when (FigureIndex.values().random()) {
+            FigureIndex.CIRCLE -> Circle(colorSupplier.getRandomColor(), getNonZeroValue())
+            FigureIndex.SQUARE -> Square(colorSupplier.getRandomColor(), getNonZeroValue())
+            FigureIndex.RECTANGLE -> Rectangle(
                 colorSupplier.getRandomColor(), getNonZeroValue(), getNonZeroValue()
             )
 
-            FigureIndex.RIGHT_TRIANGLE.index -> RightTriangle(
+            FigureIndex.RIGHT_TRIANGLE -> RightTriangle(
                 colorSupplier.getRandomColor(), getNonZeroValue(), getNonZeroValue()
             )
 
-            FigureIndex.ISOSCELES_TRAPEZOID.index -> IsoscelesTrapezoid(
+            FigureIndex.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(
                 colorSupplier.getRandomColor(), getNonZeroValue(), getNonZeroValue(), getNonZeroValue()
             )
             else -> getDefaultFigure()
@@ -42,6 +43,6 @@ class FigureSupplier {
     }
 
     private fun getNonZeroValue(): Double {
-        return Random.nextDouble(MAX_RANDOM_VALUE) + 1
+        return return (1..MAX_RANDOM_VALUE).random().toDouble()
     }
 }
