@@ -13,26 +13,27 @@ private const val MAX_LENGTH = 10
 private const val DEFAULT_RADIUS = 10
 
 class FigureSupplier {
-    private val figureTypes = arrayOf(
-        "square",
-        "rectangle",
-        "right triangle",
-        "circle",
-        "isosceles trapezoid"
-    )
     private var colorSupplier = ColorSupplier()
 
     fun getRandomFigure(): Figure {
         val color = colorSupplier.getRandomColor()
         fun randomLength(): Int = (MIN_LENGTH..MAX_LENGTH).random()
-        return when (figureTypes.random()) {
-            "square" -> Square(color, randomLength())
-            "rectangle" -> Rectangle(color, randomLength(), randomLength())
-            "right triangle" -> RightTriangle(color, randomLength(), randomLength())
-            "circle" -> Circle(color, randomLength())
+        return when (Type.values().random()) {
+            Type.SQUARE -> Square(color, randomLength())
+            Type.RECTANGLE -> Rectangle(color, randomLength(), randomLength())
+            Type.RIGHT_TRIANGLE -> RightTriangle(color, randomLength(), randomLength())
+            Type.CIRCLE -> Circle(color, randomLength())
             else -> IsoscelesTrapezoid(color, randomLength(), randomLength(), randomLength())
         }
     }
 
     fun getDefaultFigure(): Figure = Circle(Color.WHITE, DEFAULT_RADIUS)
+
+    enum class Type {
+        SQUARE,
+        RECTANGLE,
+        RIGHT_TRIANGLE,
+        CIRCLE,
+        ISOSCELES_TRAPEZOID
+    }
 }
