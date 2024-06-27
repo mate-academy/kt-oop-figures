@@ -10,41 +10,21 @@ import mate.academy.model.Square
 import kotlin.random.Random
 
 const val FIGURE_COUNTER = 4
-const val BEGINNING_SIZE_RANGE = 0
-const val FINAL_SIZE_RANGE = 100
 const val DEFAULT_FIGURE_RADIUS = 10
+const val TYPE_FIGURE_0 = 0
+const val TYPE_FIGURE_1 = 1
+const val TYPE_FIGURE_2 = 2
 const val TYPE_FIGURE_3 = 3
 
-class FigureSupplier(
-    val colorSupplier: ColorSupplier,
-) {
+class FigureSupplier {
 
     fun getRandomFigure(): Figure {
         return when (Random.nextInt(FIGURE_COUNTER)) {
-            0 -> Square(
-                colorSupplier.getRandomColor(),
-                Random.nextInt(BEGINNING_SIZE_RANGE, FINAL_SIZE_RANGE)
-            )
-            1 -> RightTriangle(
-                colorSupplier.getRandomColor(),
-                Random.nextInt(BEGINNING_SIZE_RANGE, FINAL_SIZE_RANGE),
-                Random.nextInt(BEGINNING_SIZE_RANGE, FINAL_SIZE_RANGE)
-            )
-            2 -> Rectangle(
-                colorSupplier.getRandomColor(),
-                Random.nextInt(BEGINNING_SIZE_RANGE, FINAL_SIZE_RANGE),
-                Random.nextInt(BEGINNING_SIZE_RANGE, FINAL_SIZE_RANGE)
-            )
-            TYPE_FIGURE_3 -> IsoscelesTrapezoid(
-                colorSupplier.getRandomColor(),
-                Random.nextInt(BEGINNING_SIZE_RANGE, FINAL_SIZE_RANGE),
-                Random.nextInt(BEGINNING_SIZE_RANGE, FINAL_SIZE_RANGE),
-                Random.nextInt(BEGINNING_SIZE_RANGE, FINAL_SIZE_RANGE)
-            )
-            else -> Circle(
-                colorSupplier.getRandomColor(),
-                Random.nextInt(BEGINNING_SIZE_RANGE, FINAL_SIZE_RANGE)
-            )
+            TYPE_FIGURE_0 -> Square.getRandomSquare()
+            TYPE_FIGURE_1 -> RightTriangle.getRandomRightTriangle()
+            TYPE_FIGURE_2 -> Rectangle.getRandomRectangle()
+            TYPE_FIGURE_3 -> IsoscelesTrapezoid.getRandomIsoscelesTrapezoid()
+            else -> Circle.getRandomCircle()
         }
     }
 
