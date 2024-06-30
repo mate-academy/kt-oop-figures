@@ -16,7 +16,7 @@ const val SQUARE = 1
 const val RECTANGLE = 2
 const val RIGHT_TRIANGLE = 3
 const val CIRCLE = 4
-const val ISOSCELES_TRAPEZOID= 5
+const val ISOSCELES_TRAPEZOID = 5
 
 class FigureSupplier {
     private val colorSupplier = ColorSupplier()
@@ -27,15 +27,20 @@ class FigureSupplier {
 
     fun getRandomFigure(): Figure {
         val color = colorSupplier.getRandomColor()
+
+        fun getRandomValue(): Double {
+            return (MIN_VALUE..MAX_VALUE).random().toDouble()
+        }
+
         return when((1..NUMBER_OF_FIGURES).random()) {
-            SQUARE -> Square(color, (MIN_VALUE..MAX_VALUE).random().toDouble())
-            RECTANGLE -> Rectangle(color, (MIN_VALUE..MAX_VALUE).random().toDouble(),
-                (MIN_VALUE..MAX_VALUE).random().toDouble())
-            RIGHT_TRIANGLE -> RightTriangle(color, (MIN_VALUE..MAX_VALUE).random().toDouble(),
-                (MIN_VALUE..MAX_VALUE).random().toDouble())
-            CIRCLE -> Circle(color, (MIN_VALUE..MAX_VALUE).random().toDouble())
-            ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(color, (MIN_VALUE..MAX_VALUE).random().toDouble(),
-                (MIN_VALUE..MAX_VALUE).random().toDouble(), (MIN_VALUE..MAX_VALUE).random().toDouble())
+            SQUARE -> Square(color, getRandomValue())
+            RECTANGLE -> Rectangle(color, getRandomValue(),
+                getRandomValue())
+            RIGHT_TRIANGLE -> RightTriangle(color, getRandomValue(),
+                getRandomValue())
+            CIRCLE -> Circle(color, getRandomValue())
+            ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(color, getRandomValue(),
+                getRandomValue(), getRandomValue())
             else -> error("Ooops! Incorrect value");
         }
     }
