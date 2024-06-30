@@ -1,15 +1,23 @@
 package mate.academy
 
-import mate.academy.figure.*
+import mate.academy.figure.Circle
+import mate.academy.figure.IsoscelesTrapezoid
+import mate.academy.figure.Rectangle
+import mate.academy.figure.RightTriangle
 import mate.academy.model.Color
+import mate.academy.figure.Square
+
 import mate.academy.service.FigureSupplier
 
+private const val DOUBLE_3 = 3.0
+private const val DOUBLE_5 = 5.0
+
 fun main() {
-    val circle = Circle(Color.WHITE, 3.0)
-    val isoscelesTrapezoid = IsoscelesTrapezoid(Color.GREEN, 3.0, 3.0, 4.35)
-    val rectangle = Rectangle(Color.BLUE, 24.0, 8.0)
-    val rightTriangle = RightTriangle(Color.BLACK, 10.0, 5.0)
-    val square = Square(Color.YELLOW, 50.0)
+    val circle = Circle(Color.WHITE, DOUBLE_3)
+    val isoscelesTrapezoid = IsoscelesTrapezoid(Color.GREEN, DOUBLE_3, DOUBLE_5, DOUBLE_3)
+    val rectangle = Rectangle(Color.BLUE, DOUBLE_3, DOUBLE_5)
+    val rightTriangle = RightTriangle(Color.BLACK, DOUBLE_3, DOUBLE_5)
+    val square = Square(Color.YELLOW, DOUBLE_3)
 
     println("\nDrawing figure by constructor:")
     circle.draw()
