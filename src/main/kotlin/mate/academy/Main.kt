@@ -9,15 +9,15 @@ import mate.academy.figure.Square
 
 import mate.academy.service.FigureSupplier
 
-private const val DOUBLE_3 = 3.0
-private const val DOUBLE_5 = 5.0
+private const val THREE_UNITS = 3.0
+private const val FIVE_UNITS = 5.0
 
 fun main() {
-    val circle = Circle(Color.WHITE, DOUBLE_3)
-    val isoscelesTrapezoid = IsoscelesTrapezoid(Color.GREEN, DOUBLE_3, DOUBLE_5, DOUBLE_3)
-    val rectangle = Rectangle(Color.BLUE, DOUBLE_3, DOUBLE_5)
-    val rightTriangle = RightTriangle(Color.BLACK, DOUBLE_3, DOUBLE_5)
-    val square = Square(Color.YELLOW, DOUBLE_3)
+    val circle = Circle(Color.WHITE, THREE_UNITS)
+    val isoscelesTrapezoid = IsoscelesTrapezoid(Color.GREEN, THREE_UNITS, FIVE_UNITS, THREE_UNITS)
+    val rectangle = Rectangle(Color.BLUE, THREE_UNITS, FIVE_UNITS)
+    val rightTriangle = RightTriangle(Color.BLACK, THREE_UNITS, FIVE_UNITS)
+    val square = Square(Color.YELLOW, THREE_UNITS)
 
     println("\nDrawing figure by constructor:")
     circle.draw()
@@ -32,6 +32,7 @@ fun main() {
     figureSupplier.getDefaultFigure().draw()
 
     println("\nDrawing random figure:")
+    figureSupplier.getRandomFigure().draw()
     figureSupplier.getRandomFigure().draw()
     figureSupplier.getRandomFigure().draw()
 }
