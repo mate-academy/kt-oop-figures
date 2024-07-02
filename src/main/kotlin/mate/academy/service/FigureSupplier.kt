@@ -11,7 +11,7 @@ import kotlin.random.Random
 
 private const val DEFAULT_RADIUS = 10.0
 
-private const val MAX_RANDOM_VALUE = 20.0
+private const val MAX_VALUE = 20.0
 
 
 class FigureSupplier {
@@ -19,15 +19,15 @@ class FigureSupplier {
 
     fun getRandomFigure() : Figure {
         return when(FigureType.values().random()) {
-            FigureType.CIRCLE -> Circle(colorSupplier.getRandomColor(), Random.nextDouble(MAX_RANDOM_VALUE))
+            FigureType.CIRCLE -> Circle(colorSupplier.getRandomColor(), Random.nextDouble(MAX_VALUE))
             FigureType.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(colorSupplier.getRandomColor(),
-                Random.nextDouble(MAX_RANDOM_VALUE), Random.nextDouble(MAX_RANDOM_VALUE),
-                Random.nextDouble(MAX_RANDOM_VALUE))
+                Random.nextDouble(MAX_VALUE), Random.nextDouble(MAX_VALUE),
+                Random.nextDouble(MAX_VALUE))
             FigureType.RECTANGLE -> Rectangle(colorSupplier.getRandomColor(),
-                Random.nextDouble(MAX_RANDOM_VALUE), Random.nextDouble(MAX_RANDOM_VALUE))
+                Random.nextDouble(MAX_VALUE), Random.nextDouble(MAX_VALUE))
             FigureType.RIGHT_TRIANGLE -> RightTriangle(colorSupplier.getRandomColor(),
-                Random.nextDouble(MAX_RANDOM_VALUE), Random.nextDouble(MAX_RANDOM_VALUE))
-            FigureType.SQUARE -> Square(colorSupplier.getRandomColor(), Random.nextDouble(MAX_RANDOM_VALUE))
+                Random.nextDouble(MAX_VALUE), Random.nextDouble(MAX_VALUE))
+            FigureType.SQUARE -> Square(colorSupplier.getRandomColor(), Random.nextDouble(MAX_VALUE))
         }
     }
 
