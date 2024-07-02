@@ -8,29 +8,31 @@ import mate.academy.model.RightTriangle
 import mate.academy.model.Square
 import kotlin.random.Random
 
-private const val CIRCLE = 0
-private const val ISOSCELES_TRAPEZOID = 1
-private const val RECTANGLE = 2
-private const val RIGHT_TRIANGLE = 3
-private const val SQUARE = 4
-private const val FIGURE_COUNT = 5
 private const val DEFAULT_RADIUS = 10
 private const val LIMIT = 50
 
 class FigureSupplier {
     fun getRandomFigure(): Figure {
         val randomColor = ColorSupplier().getRandomColor()
-        return when (Random.nextInt(FIGURE_COUNT)) {
-            CIRCLE -> Circle(randomColor, getRandomInt())
-            ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(randomColor, getRandomInt(), getRandomInt(), getRandomInt())
-            RECTANGLE -> Rectangle(randomColor, getRandomInt(), getRandomInt())
-            RIGHT_TRIANGLE -> RightTriangle(randomColor, getRandomInt(), getRandomInt())
-            SQUARE -> Square(randomColor, getRandomInt())
-            else -> throw IllegalArgumentException("Invalid supplied random figure")
+        return when (FigureType.values().random()) {
+            FigureType.CIRCLE -> Circle(randomColor, getRandomInt())
+            FigureType.SQUARE -> Square(randomColor, getRandomInt())
+            FigureType.RECTANGLE -> Rectangle(randomColor, getRandomInt(), getRandomInt())
+            FigureType.RIGHT_TRIANGLE -> RightTriangle(randomColor, getRandomInt(), getRandomInt())
+            FigureType.ISOSCELES_TRAPEZOID ->
+                IsoscelesTrapezoid(randomColor, getRandomInt(), getRandomInt(), getRandomInt())
         }
     }
 
     fun getDefaultFigure(): Figure = Circle(radius = DEFAULT_RADIUS)
 
     private fun getRandomInt() = Random.nextInt(LIMIT)
+
+    private enum class FigureType {
+        CIRCLE,
+        ISOSCELES_TRAPEZOID,
+        RECTANGLE,
+        RIGHT_TRIANGLE,
+        SQUARE
+    }
 }
