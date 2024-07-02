@@ -8,12 +8,14 @@ class IsoscelesTrapezoid(
     private val secondBase: Double,
     private val height: Double) : Figure(color) {
     override fun draw() {
-        println("Figure: isosceles trapezoid, "
-                + "area: ${getArea()} sq. units, "
-                + "firstBase: $firstBase units, "
-                + "secondBase: $secondBase units, "
-                + "height: $height units, "
-                + "color: $colour")
+        println("""
+            Figure: isosceles trapezoid, 
+            area: ${getArea()} sq. units,
+            firstBase: $firstBase units,
+            secondBase: $secondBase units,
+            height: $height units,
+            color: $colour
+        """.trimIndent())
     }
 
     override fun getArea() = (firstBase + secondBase) / 2 * height

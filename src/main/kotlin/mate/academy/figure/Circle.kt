@@ -8,10 +8,12 @@ class Circle(
     color: Color,
     private val radius: Double) : Figure(color) {
     override fun draw() {
-        println("Figure: circle, "
-                + "area: ${getArea()} sq. units, "
-                + "radius: $radius units, "
-                + "color: $colour")
+        println("""
+        Figure: circle, 
+        area: ${getArea()} sq. units, 
+        radius: $radius units, 
+        color: $colour
+    """.trimIndent())
     }
 
     override fun getArea() = radius.pow(2) * PI
