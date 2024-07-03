@@ -31,8 +31,8 @@ class FigureSupplier {
     private enum class FigureType {
         CIRCLE,
         ISOSCELES_TRAPEZOID,
-        RECTANGLE,
         RIGHT_TRIANGLE,
+        RECTANGLE,
         SQUARE
     }
 }
