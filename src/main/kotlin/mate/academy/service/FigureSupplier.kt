@@ -11,36 +11,51 @@ import kotlin.random.Random
 
 private const val RANGE = 100.0
 private const val DEFAULT_RADIUS = 10.0
+private const val FIGURES_AMOUNT = 5
+private const val CIRCLE_INDEX = 0
+private const val ISOSCELES_TRAPEZOID_INDEX = 1
+private const val RECTANGLE_INDEX = 2
+private const val RIGHT_TRIANGLE_INDEX = 3
+private const val SQUARE_INDEX = 4
 
 class FigureSupplier {
     private val colorSupplier = ColorSupplier()
 
     fun getRandomFigure(): Figure {
-        val figures: Array<Figure> = arrayOf(
-            Circle(
-                colorSupplier.getRandomColor(),
-                Random.nextDouble(RANGE)
-            ),
-            IsoscelesTrapezoid(
-                colorSupplier.getRandomColor(),
-                Random.nextDouble(RANGE),
-                Random.nextDouble(RANGE)
-            ),
-            Rectangle(
-                colorSupplier.getRandomColor(),
-                Random.nextDouble(RANGE),
-                Random.nextDouble(RANGE)
-            ),
-            RightTriangle(
-                colorSupplier.getRandomColor(),
-                Random.nextDouble(RANGE)
-            ),
-            Square(
+        val randomFigureIndex = Random.nextInt(FIGURES_AMOUNT)
+        return when (randomFigureIndex) {
+            CIRCLE_INDEX -> Circle(
                 colorSupplier.getRandomColor(),
                 Random.nextDouble(RANGE)
             )
-        )
-        return figures[Random.nextInt(figures.size)]
+
+            ISOSCELES_TRAPEZOID_INDEX -> IsoscelesTrapezoid(
+                colorSupplier.getRandomColor(),
+                Random.nextDouble(RANGE),
+                Random.nextDouble(RANGE)
+            )
+
+            RECTANGLE_INDEX -> Rectangle(
+                colorSupplier.getRandomColor(),
+                Random.nextDouble(RANGE),
+                Random.nextDouble(RANGE)
+            )
+
+            RIGHT_TRIANGLE_INDEX -> RightTriangle(
+                colorSupplier.getRandomColor(),
+                Random.nextDouble(RANGE)
+            )
+
+            SQUARE_INDEX -> Square(
+                colorSupplier.getRandomColor(),
+                Random.nextDouble(RANGE)
+            )
+
+            else -> Circle(
+                colorSupplier.getRandomColor(),
+                Random.nextDouble(RANGE)
+            )
+        }
     }
 
     fun getDefaultFigure(): Figure {
