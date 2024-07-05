@@ -14,7 +14,7 @@ const val DEFAULT_RADIUS_OF_CIRCLE = 10.0
 const val MAX_SIDE_LENGTH = 100.0
 
 class FigureSupplier {
-    val colorSupplier = ColorSupplier()
+    private val colorSupplier = ColorSupplier()
 
     fun getDefaultFigure(): Figure {
         return Circle(color = Color.WHITE, radius = DEFAULT_RADIUS_OF_CIRCLE)
