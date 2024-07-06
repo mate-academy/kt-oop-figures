@@ -8,13 +8,9 @@ class Circle(
     private val radius: Double
 ) : Figure(color) {
 
-    override fun calculateArea(): Double {
-        return ceil(Math.PI * radius.pow(2))
-    }
+    override fun calculateArea() = ceil(Math.PI * radius.pow(2))
 
-    override fun draw(): String {
-        return "Figure: circle, area: ${calculateArea()}" +
-                " sq. units, radius: $radius" +
-                " units, color: $color "
-    }
+    override fun draw() = "Figure: circle, area: ${calculateArea()}" +
+            " sq. units, radius: $radius" +
+            " units, color: $color "
 }

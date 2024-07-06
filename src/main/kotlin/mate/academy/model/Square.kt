@@ -4,13 +4,10 @@ class Square(
     color: Color,
     private val side: Double
 ) : Figure(color) {
-    override fun calculateArea(): Double {
-        return side * side
-    }
+    override fun calculateArea() = side * side
 
-    override fun draw(): String {
-        return "Figure: square, area: ${calculateArea()} sq. units," +
-                " side: $side units," +
-                " color: $color"
-    }
+
+    override fun draw() = "Figure: square, area: ${calculateArea()} sq. units," +
+            " side: $side units," +
+            " color: $color"
 }
