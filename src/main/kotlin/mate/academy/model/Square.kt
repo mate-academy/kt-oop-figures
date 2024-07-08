@@ -5,9 +5,10 @@ class Square(
     private val side: Double
 ) : Figure(color) {
     override fun calculateArea() = side * side
-
-
-    override fun draw() = "Figure: square, area: ${calculateArea()} sq. units," +
-            " side: $side units," +
-            " color: $color"
+    override fun draw() =
+        """
+        Figure: square, area: ${calculateArea()} sq. units,
+        side: $side units,
+        color: $color
+        """.trimIndent().replace("\n", " ")
 }
