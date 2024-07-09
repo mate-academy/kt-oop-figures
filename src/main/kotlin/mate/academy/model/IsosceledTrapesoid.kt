@@ -13,11 +13,14 @@ class IsosceledTrapesoid(
 
     override fun draw() {
         println(
-            "Figure: ${this.javaClass.simpleName.lowercase()}, area: ${getArea()}"
-                    + " sq. units, shortSide: $shortSide"
-                    + " sq. units, longSide: $longSide"
-                    + " units, h: $trapezoidH"
-                    + " units, color: $color"
+            """
+                Figure: ${this.javaClass.simpleName.lowercase()}, area: ${getArea()}
+                                    sq. units, shortSide: $shortSide
+                                    sq. units, longSide: $longSide
+                                    units, h: $trapezoidH
+                                    units, color: $color
+            """.trimIndent()
+
         );
     }
 }

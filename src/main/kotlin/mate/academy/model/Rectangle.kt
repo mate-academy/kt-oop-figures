@@ -12,10 +12,13 @@ class Rectangle(
 
     override fun draw() {
         println(
-            "Figure: ${this.javaClass.simpleName.lowercase()}, area: ${getArea()}"
-                    + " sq. units, height: $height"
-                    + " units, width: $width"
-                    + "color: $color"
+            """
+                Figure: ${this.javaClass.simpleName.lowercase()}, area: ${getArea()}
+                                     sq. units, height: $height
+                                     units, width: $width
+                                     color: $color
+            """.trimIndent()
+
         )
     }
 }

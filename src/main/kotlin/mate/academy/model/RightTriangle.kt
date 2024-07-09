@@ -12,10 +12,13 @@ class RightTriangle(
 
     override fun draw() {
         println(
-            "Figure: ${this.javaClass.simpleName.lowercase()}, area: ${getArea()}"
-                    + " sq. units, firstLeg: $firstLeg"
-                    + " units, secondLeg: $secondLeg"
-                    + "color: $color"
+            """
+                Figure: ${this.javaClass.simpleName.lowercase()}, area: ${getArea()}
+                                     sq. units, firstLeg: $firstLeg
+                                     units, secondLeg: $secondLeg
+                                     color: $color
+            """.trimIndent()
+
         )
     }
 }

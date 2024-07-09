@@ -11,9 +11,12 @@ class Square(
 
     override fun draw() {
         println(
-            "Figure: ${this.javaClass.simpleName.lowercase()}, area: ${getArea()}"
-                    + " sq. units, side: $side"
-                    + " units, color: $color"
+            """
+                Figure: ${this.javaClass.simpleName.lowercase()}, area: ${getArea()}
+                                     sq. units, side: $side
+                                     units, color: $color
+            """.trimIndent()
+
         )
     }
 }
