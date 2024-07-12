@@ -13,6 +13,7 @@ class Rectangle(val width: Double, val height: Double, color: Color) : Figure("r
     override fun calculateArea(): Double = floor(width * height * FLOOR_NUMBER) / FLOOR_NUMBER
 
     override fun draw() {
-        println("Figure: $name, area: ${calculateArea()} sq. units, width: $width units, height: $height units, color: $color")
+        println("Figure: $name, area: ${calculateArea()} sq. units,"
+                + " width: $width units, height: $height units, color: $color")
     }
 }

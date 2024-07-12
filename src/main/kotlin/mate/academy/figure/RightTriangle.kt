@@ -14,6 +14,7 @@ class RightTriangle(val base: Double, val height: Double, color: Color) : Figure
     override fun calculateArea(): Double = floor(MULTIPLIER * base * height * FLOOR_NUMBER) / FLOOR_NUMBER
 
     override fun draw() {
-        println("Figure: $name, area: ${calculateArea()} sq. units, base: $base units, height: $height units, color: $color")
+        println("Figure: $name, area: ${calculateArea()} sq. units,"
+                + " base: $base units, height: $height units, color: $color")
     }
 }

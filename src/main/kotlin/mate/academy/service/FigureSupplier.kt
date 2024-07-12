@@ -15,6 +15,10 @@ const val FIGURES_NUMBER = 5
 const val FLOOR_NUMBER = 10.0
 
 private const val MULTIPLIER = 100
+private const val CIRCLE = 1
+private const val RECTANGLE = 2
+private const val RIGHT_TRIANGLE = 3
+private const val SQUARE = 4
 
 class FigureSupplier {
     fun getRandomFigure() {
@@ -22,10 +26,10 @@ class FigureSupplier {
         val randomColor = ColorSupplier().getRandomColor()
 
         when (Random.nextInt(FIGURES_NUMBER)) {
-            1 -> Circle(randomValue, ColorSupplier().getRandomColor()).draw()
-            2 -> Rectangle(randomValue, randomValue, ColorSupplier().getRandomColor()).draw()
-            3 -> RightTriangle(randomValue, randomValue, randomColor).draw()
-            4 -> Square(randomValue, randomColor).draw()
+            CIRCLE -> Circle(randomValue, ColorSupplier().getRandomColor()).draw()
+            RECTANGLE -> Rectangle(randomValue, randomValue, ColorSupplier().getRandomColor()).draw()
+            RIGHT_TRIANGLE -> RightTriangle(randomValue, randomValue, randomColor).draw()
+            SQUARE -> Square(randomValue, randomColor).draw()
             else -> IsoscelesTrapezoid(randomValue, randomValue, randomValue, randomColor).draw()
         }
     }
