@@ -1,5 +1,9 @@
 package mate.academy
 
+import mate.academy.service.FigureSupplier
+
 fun main() {
-    // draw all figures here
+
+    FigureSupplier().getRandomFigure()
+    FigureSupplier().getDefaultFigure()
 }
