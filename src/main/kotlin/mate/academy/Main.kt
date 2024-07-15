@@ -1,5 +1,16 @@
 package mate.academy
 
+import mate.academy.service.FigureSupplier
+
 fun main() {
-    // draw all figures here
+    val figureSupplier = FigureSupplier()
+
+    listOf(
+            figureSupplier.getRandomFigure(),
+            figureSupplier.getRandomFigure(),
+            figureSupplier.getRandomFigure(),
+            figureSupplier.getDefaultFigure(),
+            figureSupplier.getDefaultFigure(),
+            figureSupplier.getDefaultFigure()
+    ).forEach { println(it.getArea()) }
 }

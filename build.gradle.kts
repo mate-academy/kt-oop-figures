@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version "1.9.22"
     application
     id("io.gitlab.arturbosch.detekt") version "1.23.3"
 }
@@ -13,6 +13,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+    implementation(kotlin("reflect"))
 }
 
 tasks.test {
@@ -20,7 +21,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 application {
