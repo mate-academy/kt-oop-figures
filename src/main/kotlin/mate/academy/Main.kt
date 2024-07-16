@@ -2,15 +2,11 @@ package mate.academy
 
 import mate.academy.service.FigureSupplier
 
+private const val ITEMS_QUANTITY = 3
+
 fun main() {
     val figureSupplier = FigureSupplier()
 
-    listOf(
-            figureSupplier.getRandomFigure(),
-            figureSupplier.getRandomFigure(),
-            figureSupplier.getRandomFigure(),
-            figureSupplier.getDefaultFigure(),
-            figureSupplier.getDefaultFigure(),
-            figureSupplier.getDefaultFigure()
-    ).forEach { println(it.getArea()) }
+    repeat(ITEMS_QUANTITY) { println(figureSupplier.getRandomFigure().getArea()) }
+    repeat(ITEMS_QUANTITY) { println(figureSupplier.getDefaultFigure().getArea()) }
 }

@@ -9,25 +9,23 @@ import mate.academy.model.Square
 import mate.academy.util.randomFullRangeInt
 import mate.academy.util.randomHighRangeInt
 import mate.academy.util.randomLowRangeInt
-import kotlin.random.Random.Default.nextInt
 
 class FigureSupplier {
 
-    fun getRandomFigure(): Figure {
-        val randomIndex = nextInt(Figure::class.sealedSubclasses.size)
+    fun getRandomFigure() : Figure {
         val randomColor = ColorSupplier().getRandomColor()
 
-        return when (Figure::class.sealedSubclasses[randomIndex]) {
+        return when (Figure::class.sealedSubclasses.random()) {
             Square::class -> Square(randomColor, randomFullRangeInt())
             Rectangle::class -> Rectangle(randomColor, randomLowRangeInt(), randomHighRangeInt())
             RightTriangle::class -> RightTriangle(randomColor, randomLowRangeInt(), randomHighRangeInt())
             Circle::class -> Circle(randomColor, randomFullRangeInt())
             IsoscelesTrapezoid::class -> IsoscelesTrapezoid(randomColor,
                     randomLowRangeInt(), randomHighRangeInt(), randomLowRangeInt())
-            else -> throw NoSuchElementException("No figure")
+            else -> throw NoSuchElementException("No figure handler present")
         }
     }
 
-    fun getDefaultFigure(): Figure = Circle()
+    fun getDefaultFigure() : Figure = Circle()
 
 }
