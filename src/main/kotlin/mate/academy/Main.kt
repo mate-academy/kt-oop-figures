@@ -13,6 +13,5 @@ fun main() {
             figureSupplier.getDefaultFigure()
         }
     }
-
     figures.forEach { it.draw() }
 }
