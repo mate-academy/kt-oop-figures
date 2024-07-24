@@ -7,8 +7,12 @@ class Circle(
     color: Color,
     private val radius: Double) : Figure(color) {
     override fun draw() {
-        println("Figure: Circle, area: ${getArea()} sq. units, "
-                + "radius: $radius units, color: $color")
+        println(
+        """
+        Figure: Circle, area: ${getArea()} sq. units, 
+        radius: $radius units, 
+        color: $color
+        """)
     }
 
     override fun getArea(): Double {

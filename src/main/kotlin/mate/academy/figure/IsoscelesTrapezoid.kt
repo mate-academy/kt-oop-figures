@@ -9,12 +9,13 @@ class IsoscelesTrapezoid(
     private val upperBase: Double) : Figure(color) {
     override fun draw() {
         println(
-            "Figure: Isosceles Trapezoid, area: ${getArea()} sq. units, "
-                    + "height: $height units, "
-                    + "bottomBase: $lowerBase units, "
-                    + "topBase: $upperBase units, "
-                    + "color: $color"
-        )
+        """
+        Figure: Isosceles Trapezoid, area: ${getArea()} sq. units, 
+        height: $height units, 
+        bottomBase: $lowerBase units, 
+        topBase: $upperBase units, 
+        color: $color
+        """)
     }
 
     override fun getArea(): Double {

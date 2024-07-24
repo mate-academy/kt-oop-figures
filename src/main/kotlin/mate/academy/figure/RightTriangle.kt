@@ -7,8 +7,13 @@ class RightTriangle(
     private val firstLeg: Double,
     private val secondLeg: Double) : Figure(color){
     override fun draw() {
-        println("Figure: Right Triangle, area: ${getArea()} sq. units, "
-                + "firstLeg: $firstLeg units, secondLeg: $secondLeg units, color: $color")
+        println(
+        """
+        Figure: Right Triangle, area: ${getArea()} sq. units, 
+        firstLeg: $firstLeg units, 
+        secondLeg: $secondLeg units, 
+        color: $color
+        """)
     }
 
     override fun getArea(): Double {
