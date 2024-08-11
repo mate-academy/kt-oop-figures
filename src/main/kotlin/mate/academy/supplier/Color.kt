@@ -1,4 +1,4 @@
-package mate.academy.model
+package mate.academy.supplier
 
 enum class Color {
     YELLOW,
