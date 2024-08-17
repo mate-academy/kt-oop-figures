@@ -1,6 +1,12 @@
 package mate.academy.service
 
-import mate.academy.model.*
+import mate.academy.model.Circle
+import mate.academy.model.Color
+import mate.academy.model.Figure
+import mate.academy.model.IsoscelesTrapezoid
+import mate.academy.model.Rectangle
+import mate.academy.model.RightTriangle
+import mate.academy.model.Square
 import kotlin.random.Random
 
 const val BOUND_VALUE = 100.0
@@ -10,7 +16,8 @@ class FigureSupplier {
     fun getRandomFigure(): Figure {
         val colorSupplier = ColorSupplier()
 
-        val figureClasses = listOf(Circle::class, Square::class, Rectangle::class
+        val figureClasses = listOf(
+            Circle::class, Square::class, Rectangle::class
             , RightTriangle::class, IsoscelesTrapezoid::class)
 
         return  when (figureClasses[Random.nextInt(figureClasses.size)]) {
