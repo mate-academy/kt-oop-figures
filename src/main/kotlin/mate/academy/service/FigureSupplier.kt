@@ -3,6 +3,7 @@ package mate.academy.service
 import mate.academy.model.Circle
 import mate.academy.model.Color
 import mate.academy.model.Figure
+import mate.academy.model.FigureType
 import mate.academy.model.IsoscelesTrapezoid
 import mate.academy.model.Rectangle
 import mate.academy.model.RightTriangle
@@ -16,28 +17,23 @@ class FigureSupplier {
     fun getRandomFigure(): Figure {
         val colorSupplier = ColorSupplier()
 
-        val figureClasses = listOf(
-            Circle::class, Square::class, Rectangle::class
-            , RightTriangle::class, IsoscelesTrapezoid::class)
-
-        return  when (figureClasses[Random.nextInt(figureClasses.size)]) {
-            Circle::class -> Circle(Random.nextDouble(BOUND_VALUE), colorSupplier.getRandomColor())
-            Square::class -> Square(Random.nextDouble(BOUND_VALUE), colorSupplier.getRandomColor())
-            Rectangle::class -> Rectangle(
+        return when (FigureType.values().random()) {
+            FigureType.CIRCLE -> Circle(Random.nextDouble(BOUND_VALUE), colorSupplier.getRandomColor())
+            FigureType.SQUARE -> Square(Random.nextDouble(BOUND_VALUE), colorSupplier.getRandomColor())
+            FigureType.RECTANGLE -> Rectangle(
                 Random.nextDouble(BOUND_VALUE)
                 , Random.nextDouble(BOUND_VALUE), colorSupplier.getRandomColor()
             )
-            RightTriangle::class -> RightTriangle(
+            FigureType.RIGHT_TRIANGLE -> RightTriangle(
                 Random.nextDouble(BOUND_VALUE)
                 , Random.nextDouble(BOUND_VALUE), colorSupplier.getRandomColor()
             )
-            IsoscelesTrapezoid::class -> IsoscelesTrapezoid(
+            FigureType.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(
                 Random.nextDouble(BOUND_VALUE),
                 Random.nextDouble(BOUND_VALUE),
                 Random.nextDouble(BOUND_VALUE),
                 colorSupplier.getRandomColor()
             )
-            else -> throw IllegalArgumentException("Unknown figure class")
         }
     }
 
