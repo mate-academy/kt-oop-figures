@@ -9,36 +9,35 @@ import mate.academy.figure.RightTriangle
 import mate.academy.model.Color
 import kotlin.random.Random
 
-const val START_RANDOM_NUMBER = 1.0
-const val FINISH_RANDOM_NUMBER = 20.0
+const val START_RANDOM_NUMBER = 1
+const val FINISH_RANDOM_NUMBER = 20
 const val DEFAULT_RADIUS = 10.0
-const val QUANTITY_FIGURES = 5
-const val ROUND_NUMBER = 10
-const val ROUND_NUMBER2 = 10.0
-const val ISOSCELES_TRIANGLE = 4
-const val RIGHT_TRIANGLE = 3
-const val RECTANGLE = 2
-const val SQUARE = 1
-const val CIRCLE = 0
+enum class FigureType {
+    SQUARE,
+    CIRCLE,
+    RECTANGLE,
+    RIGHT_TRIANGLE,
+    ISOSCELES_TRIANGLE
+}
 
-class FigureSupplier: ColorSupplier() {
+class FigureSupplier {
+    private val color: ColorSupplier = ColorSupplier()
     val randomValue: () -> Double = {
-        val  value = Random.nextDouble(START_RANDOM_NUMBER, FINISH_RANDOM_NUMBER)
-        Math.round(value * ROUND_NUMBER) / ROUND_NUMBER2
-    }
+        Random.nextInt(START_RANDOM_NUMBER, FINISH_RANDOM_NUMBER).toDouble()}
 
     fun getDefaultFigure(): Figure {
         return Circle(Color.WHITE, DEFAULT_RADIUS)
     }
 
     fun getRandomFigure(): Figure {
-        return when (Random.nextInt(QUANTITY_FIGURES)) {
-            CIRCLE -> Circle(getRandomColor(), randomValue())
-            SQUARE -> Square(getRandomColor(), randomValue())
-            RECTANGLE -> Rectangle(getRandomColor(), randomValue(), randomValue())
-            RIGHT_TRIANGLE -> RightTriangle(getRandomColor(), randomValue(), randomValue())
-            ISOSCELES_TRIANGLE -> IsoscelesTrapezoid(getRandomColor(), randomValue(), randomValue(), randomValue())
-            else -> throw IllegalArgumentException("Unknown figure type")
+        return when (FigureType.values().random()) {
+            FigureType.CIRCLE -> Circle(color.getRandomColor(), randomValue())
+            FigureType.SQUARE -> Square(color.getRandomColor(), randomValue())
+            FigureType.RECTANGLE -> Rectangle(color.getRandomColor(), randomValue(), randomValue())
+            FigureType.RIGHT_TRIANGLE -> RightTriangle(color.getRandomColor(),
+                randomValue(), randomValue())
+            FigureType.ISOSCELES_TRIANGLE -> IsoscelesTrapezoid(color.getRandomColor()
+                , randomValue(), randomValue(), randomValue())
         }
     }
 }
