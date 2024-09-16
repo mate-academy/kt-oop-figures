@@ -26,14 +26,15 @@ class FigureSupplier {
     fun getRandomFigure(): Figure {
         val randomFigureType = figureTypeSupplier.getRandomFigureType()
         return when (randomFigureType) {
-            FigureType.Circle -> getRandomCircle()
-            FigureType.IsoscelesTrapezoid -> getRandomIsoscelesTrapezoid()
-            FigureType.Rectangle -> getRandomRectangle()
-            FigureType.RightTriangle -> getRandomRightTriangle()
-            FigureType.Square -> getRandomSquare()
+            FigureType.CIRCLE -> getRandomCircle()
+            FigureType.ISOSCELES_TRAPEZOID -> getRandomIsoscelesTrapezoid()
+            FigureType.RECTANGLE -> getRandomRectangle()
+            FigureType.RIGHT_TRIANGLE -> getRandomRightTriangle()
+            FigureType.SQUARE -> getRandomSquare()
         }
     }
 
+    //Those functions are not private - for using without getRandomFigure()
     fun getRandomCircle(): Figure {
         val randomColor = colorSupplier.getRandomColor()
         val randomRadius = Random.nextDouble(MAX_SIZE)
