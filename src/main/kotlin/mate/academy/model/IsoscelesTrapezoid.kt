@@ -9,11 +9,7 @@ class IsoscelesTrapezoid(
 
     override fun getArea(): Double = (upperBase + lowerBase) * height / 2
 
-    override fun draw(): String = ("Figure: ${javaClass.simpleName.lowercase()}, "
-            + "area: ${getArea()} sq. units, "
-            + "upperBase: $upperBase units, "
-            + "lowerBase: $lowerBase units, "
-            + "height: $height units, "
-            + "color: ${color.toString().lowercase()}"
-    )
+    override fun draw(): String = "Figure: ${javaClass.simpleName.lowercase()}, " +
+        "area: ${getArea()} sq. units, upperBase: $upperBase units, lowerBase: $lowerBase units, " +
+        "height: $height units, color: ${color.toString().lowercase()}"
 }

@@ -8,10 +8,7 @@ class Rectangle(
 
     override fun getArea(): Double = width * height
 
-    override fun draw(): String = ("Figure: ${javaClass.simpleName.lowercase()}, "
-            + "area: ${getArea()} sq. units, "
-            + "width: $width units, "
-            + "height: $height units, "
-            + "color: ${color.toString().lowercase()}"
-    )
+    override fun draw(): String = "Figure: ${javaClass.simpleName.lowercase()}, " +
+        "area: ${getArea()} sq. units, width: $width units, height: $height units, " +
+        "color: ${color.toString().lowercase()}"
 }

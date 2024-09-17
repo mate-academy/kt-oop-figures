@@ -34,14 +34,13 @@ class FigureSupplier {
         }
     }
 
-    //Those functions are not private - for using without getRandomFigure()
-    fun getRandomCircle(): Figure {
+    private fun getRandomCircle(): Figure {
         val randomColor = colorSupplier.getRandomColor()
         val randomRadius = Random.nextDouble(MAX_SIZE)
         return Circle(randomColor, randomRadius)
     }
 
-    fun getRandomIsoscelesTrapezoid(): Figure {
+    private fun getRandomIsoscelesTrapezoid(): Figure {
         val randomColor = colorSupplier.getRandomColor()
         val randomUpperBase = Random.nextDouble(MAX_SIZE)
         val randomLowerBase = Random.nextDouble(MAX_SIZE)
@@ -49,21 +48,21 @@ class FigureSupplier {
         return IsoscelesTrapezoid(randomColor, randomUpperBase, randomLowerBase, randomHeight)
     }
 
-    fun getRandomRectangle(): Figure {
+    private fun getRandomRectangle(): Figure {
         val randomColor = colorSupplier.getRandomColor()
         val randomWidth = Random.nextDouble(MAX_SIZE)
         val randomHeight = Random.nextDouble(MAX_SIZE)
         return Rectangle(randomColor, randomWidth, randomHeight)
     }
 
-    fun getRandomRightTriangle(): Figure {
+    private fun getRandomRightTriangle(): Figure {
         val randomColor = colorSupplier.getRandomColor()
         val randomFirstLeg = Random.nextDouble(MAX_SIZE)
         val randomSecondLeg = Random.nextDouble(MAX_SIZE)
         return RightTriangle(randomColor, randomFirstLeg, randomSecondLeg)
     }
 
-    fun getRandomSquare(): Figure {
+    private fun getRandomSquare(): Figure {
         val randomColor = colorSupplier.getRandomColor()
         val randomSide = Random.nextDouble(MAX_SIZE)
         return Square(randomColor, randomSide)

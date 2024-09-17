@@ -8,10 +8,7 @@ class RightTriangle(
 
     override fun getArea(): Double = firstLeg * secondLeg / 2
 
-    override fun draw(): String = ("Figure: ${javaClass.simpleName.lowercase()}, "
-            + "area: ${getArea()} sq. units, "
-            + "firstLeg: $firstLeg units, "
-            + "secondLeg: $secondLeg units, "
-            + "color: ${color.toString().lowercase()}"
-    )
+    override fun draw(): String = "Figure: ${javaClass.simpleName.lowercase()}, " +
+        "area: ${getArea()} sq. units, firstLeg: $firstLeg units, secondLeg: $secondLeg units, " +
+        "color: ${color.toString().lowercase()}"
 }
