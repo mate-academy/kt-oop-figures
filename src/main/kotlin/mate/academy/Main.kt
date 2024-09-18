@@ -7,10 +7,10 @@ const val FIGURE_ARRAY_SIZE = 8
 
 fun main() {
     // draw all figures here
-    val fs  = FigureSupplier()
+    val figureSupplier  = FigureSupplier()
     val figures : Array<Figure> = Array(FIGURE_ARRAY_SIZE) {
-            i -> if (i < FIGURE_ARRAY_SIZE / 2) fs.getRandomFigure()
-                else fs.getDefaultFigure()}
+            i -> if (i < FIGURE_ARRAY_SIZE / 2) figureSupplier.getRandomFigure()
+                else figureSupplier.getDefaultFigure()}
 
     figures.forEach { println(it.draw()) }
 }
