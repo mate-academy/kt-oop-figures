@@ -1,4 +1,4 @@
-package mate.academy.figure_interface
+package mate.academy.interfaces
 
 interface AreaInterface {
     fun getArea(): Double

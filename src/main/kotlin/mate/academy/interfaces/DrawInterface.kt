@@ -1,4 +1,4 @@
-package mate.academy.figure_interface
+package mate.academy.interfaces
 
 interface DrawInterface {
     fun draw()

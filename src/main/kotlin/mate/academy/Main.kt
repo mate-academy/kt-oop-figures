@@ -17,7 +17,8 @@ fun main() {
     val middleOfLoop = arrayOfFigures.size / DIVIDER
 
     for (i in START..END) {
-        arrayOfFigures[i] = if (i < middleOfLoop) figureSupplier.getRandomFigure() else figureSupplier.getDefaultFigure()
+        arrayOfFigures[i] = if (i < middleOfLoop) figureSupplier.getRandomFigure()
+        else figureSupplier.getDefaultFigure()
     }
 
     arrayOfFigures.forEach { it?.draw() }

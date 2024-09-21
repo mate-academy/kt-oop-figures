@@ -6,6 +6,7 @@ class Rectangle(val color: String, val firstSide: Double, val secondSide: Double
     }
 
     override fun draw() {
-        println("Figure: rectangle, area: ${getArea()}.sq units, first side: $firstSide, second side: $secondSide, color: $color")
+        println("Figure: rectangle, area: ${getArea()}.sq units, first side: $firstSide, " +
+                "second side: $secondSide, color: $color")
     }
 }
