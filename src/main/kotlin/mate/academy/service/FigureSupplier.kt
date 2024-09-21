@@ -28,7 +28,7 @@ class FigureSupplier {
                 firstRandomNumber, secondRandomNumber)
             FigureEnum.RIGHT_TRIANGLE -> RightTriangle(colorSupplier.getRandomColor().toString().lowercase(),
                 firstRandomNumber)
-            FigureEnum.SQUARE -> Circle(colorSupplier.getRandomColor().toString().lowercase(),
+            FigureEnum.SQUARE -> Square(colorSupplier.getRandomColor().toString().lowercase(),
                 firstRandomNumber)
         }
     }
