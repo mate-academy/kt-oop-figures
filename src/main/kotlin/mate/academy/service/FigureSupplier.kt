@@ -1,6 +1,13 @@
 package mate.academy.service
 
-import mate.academy.model.*
+
+import mate.academy.model.Circle
+import mate.academy.model.Figure
+import mate.academy.model.IsoscelesTrapezoid
+import mate.academy.model.Rectangle
+import mate.academy.model.RightTriangle
+import mate.academy.model.Square
+import mate.academy.model.Color
 import kotlin.random.Random
 
 private const val CIRCLE_CASE = 1
@@ -8,6 +15,7 @@ private const val ISOSCELES_TRAPEZOID_CASE = 2
 private const val RECTANGLE_CASE = 3
 private const val RIGHT_TRIANGLE_CASE = 4
 private const val FIGURE_COUNT = 5
+private const val DEFAULT_CIRCLE_RADIUS = 10.0
 
 class FigureSupplier {
     private val colorSupplier = ColorSupplier()
@@ -49,6 +57,6 @@ class FigureSupplier {
     }
 
     fun getDefaultFigure() : Figure {
-        return Circle(Color.WHITE, 10.0)
+        return Circle(Color.WHITE, DEFAULT_CIRCLE_RADIUS)
     }
 }
