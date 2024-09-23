@@ -16,6 +16,7 @@ private const val RECTANGLE_CASE = 3
 private const val RIGHT_TRIANGLE_CASE = 4
 private const val FIGURE_COUNT = 5
 private const val DEFAULT_CIRCLE_RADIUS = 10.0
+private const val MAX_RANDOM_VALUE = 50.0
 
 class FigureSupplier {
     private val colorSupplier = ColorSupplier()
@@ -30,30 +31,30 @@ class FigureSupplier {
     }
 
     private fun getRandomCircle() : Figure {
-        return Circle(colorSupplier.getRandomColor(), Random.nextDouble())
+        return Circle(colorSupplier.getRandomColor(), Random.nextDouble(MAX_RANDOM_VALUE))
     }
 
     private fun getRandomIsoscelesTrapezoid() : Figure {
         return IsoscelesTrapezoid(colorSupplier.getRandomColor(),
-            Random.nextDouble(),
-            Random.nextDouble(),
-            Random.nextDouble())
+            Random.nextDouble(MAX_RANDOM_VALUE),
+            Random.nextDouble(MAX_RANDOM_VALUE),
+            Random.nextDouble(MAX_RANDOM_VALUE))
     }
 
     private fun getRectangle() : Figure {
         return Rectangle(colorSupplier.getRandomColor(),
-            Random.nextDouble(),
-            Random.nextDouble())
+            Random.nextDouble(MAX_RANDOM_VALUE),
+            Random.nextDouble(MAX_RANDOM_VALUE))
     }
 
     private fun getRightTriangle() : Figure {
         return RightTriangle(colorSupplier.getRandomColor(),
-            Random.nextDouble(),
-            Random.nextDouble())
+            Random.nextDouble(MAX_RANDOM_VALUE),
+            Random.nextDouble(MAX_RANDOM_VALUE))
     }
 
     private fun getRandomSquare() : Figure {
-        return Square(colorSupplier.getRandomColor(), Random.nextDouble())
+        return Square(colorSupplier.getRandomColor(), Random.nextDouble(MAX_RANDOM_VALUE))
     }
 
     fun getDefaultFigure() : Figure {
