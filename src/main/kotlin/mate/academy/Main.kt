@@ -7,13 +7,10 @@ private const val FIGURES_AMOUNT = 8
 
 fun main() {
     val figureSupplier = FigureSupplier()
-    val figures: MutableList<Figure> = ArrayList(FIGURES_AMOUNT)
-    for (i in 0..FIGURES_AMOUNT / 2) {
-        figures.add(figureSupplier.getRandomFigure())
+    val figures: Array<Figure> = Array(FIGURES_AMOUNT) {
+        i -> if (i < FIGURES_AMOUNT / 2) figureSupplier.getRandomFigure()
+    else figureSupplier.getDefaultFigure()
     }
-    for (i in FIGURES_AMOUNT / 2 until FIGURES_AMOUNT) {
-        figures.add(figureSupplier.getDefaultFigure())
-    }
-
+    
     figures.forEach { f -> f.draw() }
 }
