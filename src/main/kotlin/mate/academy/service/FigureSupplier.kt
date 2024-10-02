@@ -1,31 +1,44 @@
 package mate.academy.service
 
-import mate.academy.model.*
+import mate.academy.model.Circle
+import mate.academy.model.Color
+import mate.academy.model.IsoscelesTrapezoid
+import mate.academy.model.Rectangle
+import mate.academy.model.RightTriangle
+import mate.academy.model.Square
 import kotlin.random.Random
+
+const val MIN_RANDOM_SIZE = 1.0
+const val MAX_RANDOM_SIZE = 10.0
 
 class FigureSupplier {
 
     private val colorSupplier = ColorSupplier()
-    private val random = Random
+
+    private fun getRandomFigureType(): FigureType {
+        return FigureType.values().random()
+    }
 
     fun getRandomFigure(): Figure {
-        val figureType = random.nextInt(5)
-        return when (figureType) {
-            0 -> Square(colorSupplier.getRandomColor(),
-                random.nextDouble(1.0, 10.0))
-            1 -> Rectangle(colorSupplier.getRandomColor(),
-                random.nextDouble(1.0, 10.0), random.nextDouble(1.0, 10.0))
-            2 -> RightTriangle(colorSupplier.getRandomColor(),
-                random.nextDouble(1.0, 10.0), random.nextDouble(1.0, 10.0))
-            3 -> Circle(colorSupplier.getRandomColor(), random.nextDouble(1.0, 10.0))
-            else -> IsoscelesTrapezoid(colorSupplier.getRandomColor(),
-                random.nextDouble(1.0, 10.0),
-                random.nextDouble(1.0, 10.0),
-                random.nextDouble(1.0, 10.0))
+        return when (getRandomFigureType()) {
+            FigureType.SQUARE -> Square(colorSupplier.getRandomColor(),
+                Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
+            FigureType.RECTANGLE -> Rectangle(colorSupplier.getRandomColor(),
+                Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE),
+                Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
+            FigureType.RIGHT_TRIANGLE -> RightTriangle(colorSupplier.getRandomColor(),
+                Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE),
+                Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
+            FigureType.CIRCLE -> Circle(colorSupplier.getRandomColor(),
+                Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
+            FigureType.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(colorSupplier.getRandomColor(),
+                Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE),
+                Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE),
+                Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
         }
     }
 
     fun getDefaultFigure(): Figure {
-        return Circle(Color.WHITE, 10.0)
+        return Circle(Color.WHITE, MAX_RANDOM_SIZE)
     }
 }

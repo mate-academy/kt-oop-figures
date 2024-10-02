@@ -6,6 +6,13 @@ class Rectangle(override val color: Color, private val width: Double, private va
 
     override fun getArea(): Double = width * height
 
-    override fun draw() = println("Figure: rectangle, area: ${getArea()} sq. units, " +
-            "width: $width units, height: $height units, color: $color")
+    override fun draw() = println(
+        """
+        Figure: rectangle, 
+        area: ${getArea()} sq. units, 
+        width: $width units, 
+        height: $height units, 
+        color: $color 
+    """.trimIndent()
+    )
 }
