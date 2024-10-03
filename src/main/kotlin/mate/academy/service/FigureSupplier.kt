@@ -7,6 +7,11 @@ import mate.academy.model.Rectangle
 import mate.academy.model.RightTriangle
 import mate.academy.model.Square
 import kotlin.random.Random
+import mate.academy.service.FigureType.SQUARE
+import mate.academy.service.FigureType.RECTANGLE
+import mate.academy.service.FigureType.RIGHT_TRIANGLE
+import mate.academy.service.FigureType.CIRCLE
+import mate.academy.service.FigureType.ISOSCELES_TRAPEZOID
 
 const val MIN_RANDOM_SIZE = 1.0
 const val MAX_RANDOM_SIZE = 10.0
@@ -15,23 +20,21 @@ class FigureSupplier {
 
     private val colorSupplier = ColorSupplier()
 
-    private fun getRandomFigureType(): FigureType {
-        return FigureType.values().random()
-    }
+    private val figureTypes = FigureType.values()
 
     fun getRandomFigure(): Figure {
-        return when (getRandomFigureType()) {
-            FigureType.SQUARE -> Square(colorSupplier.getRandomColor(),
+        return when (figureTypes.random()) {
+            SQUARE -> Square(colorSupplier.getRandomColor(),
                 Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
-            FigureType.RECTANGLE -> Rectangle(colorSupplier.getRandomColor(),
+            RECTANGLE -> Rectangle(colorSupplier.getRandomColor(),
                 Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE),
                 Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
-            FigureType.RIGHT_TRIANGLE -> RightTriangle(colorSupplier.getRandomColor(),
+            RIGHT_TRIANGLE -> RightTriangle(colorSupplier.getRandomColor(),
                 Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE),
                 Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
-            FigureType.CIRCLE -> Circle(colorSupplier.getRandomColor(),
+            CIRCLE -> Circle(colorSupplier.getRandomColor(),
                 Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
-            FigureType.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(colorSupplier.getRandomColor(),
+            ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(colorSupplier.getRandomColor(),
                 Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE),
                 Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE),
                 Random.nextDouble(MIN_RANDOM_SIZE, MAX_RANDOM_SIZE))
