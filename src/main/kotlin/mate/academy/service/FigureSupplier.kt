@@ -18,10 +18,23 @@ class FigureSupplier(private val colorSupplier: ColorSupplier) {
         val color = colorSupplier.getRandomColor()
         return when (Random.nextInt(5)) {
             0 -> Square(color, Random.nextDouble(minSize, maxSize))
-            1 -> Rectangle(color, Random.nextDouble(minSize, maxSize), Random.nextDouble(minSize, maxSize))
-            2 -> RightTriangle(color, Random.nextDouble(minSize, maxSize), Random.nextDouble(minSize, maxSize))
+            1 -> Rectangle(
+                color,
+                Random.nextDouble(minSize, maxSize),
+                Random.nextDouble(minSize, maxSize)
+            )
+            2 -> RightTriangle(
+                color,
+                Random.nextDouble(minSize, maxSize),
+                Random.nextDouble(minSize, maxSize)
+            )
             3 -> Circle(color, Random.nextDouble(minSize, maxSize))
-            else -> IsoscelesTrapezoid(color, Random.nextDouble(minSize, maxSize), Random.nextDouble(minSize, maxSize), Random.nextDouble(minSize, maxSize))
+            else -> IsoscelesTrapezoid(
+                color,
+                Random.nextDouble(minSize, maxSize),
+                Random.nextDouble(minSize, maxSize),
+                Random.nextDouble(minSize, maxSize)
+            )
         }
     }
 
