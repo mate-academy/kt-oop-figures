@@ -8,7 +8,7 @@ fun main() {
     val colorSupplier = ColorSupplier()
     val figureSupplier = FigureSupplier(colorSupplier)
     val numberOfFigures = 6
-    val numberOfRandomFigures = 3
+    val numberOfRandomFigures = numberOfFigures / 2
     val figures = Array<Figure>(numberOfFigures) { index ->
         if (index < numberOfRandomFigures) {
             figureSupplier.getRandomFigure()
