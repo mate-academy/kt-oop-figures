@@ -1,6 +1,6 @@
 package mate.academy.model
 
-abstract class Figure(val color: Color) {
+abstract class Figure {
     abstract fun area(): Double
     abstract fun draw()
 }
