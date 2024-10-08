@@ -7,8 +7,10 @@ import mate.academy.service.FigureSupplier
 fun main() {
     val colorSupplier = ColorSupplier()
     val figureSupplier = FigureSupplier(colorSupplier)
-    val figures = Array<Figure>(6) { index ->
-        if (index < 3) {
+    val numberOfFigures = 6
+    val numberOfRandomFigures = 3
+    val figures = Array<Figure>(numberOfFigures) { index ->
+        if (index < numberOfRandomFigures) {
             figureSupplier.getRandomFigure()
         } else {
             figureSupplier.getDefaultFigure()
