@@ -1,12 +1,6 @@
 package mate.academy.service
 
-import mate.academy.model.Circle
-import mate.academy.model.Color
-import mate.academy.model.Figure
-import mate.academy.model.IsoscelesTrapezoid
-import mate.academy.model.Rectangle
-import mate.academy.model.RightTriangle
-import mate.academy.model.Square
+import mate.academy.model.*
 import kotlin.random.Random
 
 class FigureSupplier(private val colorSupplier: ColorSupplier) {
@@ -16,20 +10,20 @@ class FigureSupplier(private val colorSupplier: ColorSupplier) {
 
     fun getRandomFigure(): Figure {
         val color = colorSupplier.getRandomColor()
-        return when (Random.nextInt(5)) {
-            0 -> Square(color, Random.nextDouble(minSize, maxSize))
-            1 -> Rectangle(
+        return when (FigureType.values().random()) {
+            FigureType.SQUARE -> Square(color, Random.nextDouble(minSize, maxSize))
+            FigureType.RECTANGLE -> Rectangle(
                 color,
                 Random.nextDouble(minSize, maxSize),
                 Random.nextDouble(minSize, maxSize)
             )
-            2 -> RightTriangle(
+            FigureType.RIGHT_TRIANGLE -> RightTriangle(
                 color,
                 Random.nextDouble(minSize, maxSize),
                 Random.nextDouble(minSize, maxSize)
             )
-            3 -> Circle(color, Random.nextDouble(minSize, maxSize))
-            else -> IsoscelesTrapezoid(
+            FigureType.CIRCLE -> Circle(color, Random.nextDouble(minSize, maxSize))
+            FigureType.ISOSCELES_TRAPEZOID -> IsoscelesTrapezoid(
                 color,
                 Random.nextDouble(minSize, maxSize),
                 Random.nextDouble(minSize, maxSize),
