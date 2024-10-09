@@ -6,9 +6,8 @@ class IsoscelesTrapezoid(
     private val base2: Double,
     private val height: Double
 ) : Figure(color) {
-    private val half = 0.5
 
-    override fun area(): Double = half * (base1 + base2) * height
+    override fun area(): Double = (base1 + base2) * height / 2
 
     override fun draw() {
         println(
