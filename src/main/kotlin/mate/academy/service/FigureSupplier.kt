@@ -14,7 +14,6 @@ class FigureSupplier(private val colorSupplier: ColorSupplier) {
     private val minSize = 1.0
     private val maxSize = 10.0
     private val defaultRadius = 10.0
-    private val numberOfFigureTypes = FigureType.values().size
 
     fun getRandomFigure(): Figure {
         val color = colorSupplier.getRandomColor()
