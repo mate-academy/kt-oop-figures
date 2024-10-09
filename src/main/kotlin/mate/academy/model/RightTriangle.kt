@@ -5,9 +5,8 @@ class RightTriangle(
     private val firstLeg: Double,
     private val secondLeg: Double
 ) : Figure(color) {
-    private val half = 0.5
 
-    override fun area(): Double = half * firstLeg * secondLeg
+    override fun area(): Double = firstLeg * secondLeg / 2
 
     override fun draw() {
         println(
