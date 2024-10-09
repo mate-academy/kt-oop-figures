@@ -1,6 +1,10 @@
 package mate.academy.model
 
-class RightTriangle(color: Color, private val firstLeg: Double, private val secondLeg: Double) : Figure(color) {
+class RightTriangle(
+    color: Color,
+    private val firstLeg: Double,
+    private val secondLeg: Double
+) : Figure(color) {
     private val half = 0.5
 
     override fun area(): Double = half * firstLeg * secondLeg
