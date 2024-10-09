@@ -1,12 +1,14 @@
 package mate.academy.model
 
 class IsoscelesTrapezoid(
-    private val color: Color,
+    color: Color,
     private val base1: Double,
     private val base2: Double,
     private val height: Double
-) : Figure() {
-    override fun area(): Double = 0.5 * (base1 + base2) * height
+) : Figure(color) {
+    private val half = 0.5
+
+    override fun area(): Double = half * (base1 + base2) * height
 
     override fun draw() {
         println(
