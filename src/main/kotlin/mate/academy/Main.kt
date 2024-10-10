@@ -6,10 +6,10 @@ import mate.academy.service.FigureSupplier
 fun main() {
     val colorSupplier = ColorSupplier()
     val figureSupplier = FigureSupplier(colorSupplier)
-    val TOTAL_FIGURES = 6
-    val halfOfFigures = TOTAL_FIGURES / 2
+    val totalFigures = 6
+    val halfOfFigures = totalFigures / 2
 
-    repeat(TOTAL_FIGURES) { index ->
+    repeat(totalFigures) { index ->
         val figure = if (index < halfOfFigures) {
             figureSupplier.getRandomFigure()
         } else {
