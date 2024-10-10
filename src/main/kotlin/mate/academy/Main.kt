@@ -6,7 +6,7 @@ import mate.academy.service.FigureSupplier
 fun main() {
     val colorSupplier = ColorSupplier()
     val figureSupplier = FigureSupplier(colorSupplier)
-    val totalFigures = 6
+    val totalFigures = TOTAL_FIGURES
     val halfOfFigures = totalFigures / 2
 
     repeat(totalFigures) { index ->
@@ -18,3 +18,5 @@ fun main() {
         figure.draw()
     }
 }
+
+const val TOTAL_FIGURES = 6
