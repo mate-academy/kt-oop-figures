@@ -21,7 +21,7 @@ class FigureSupplier {
             0 -> Circle(Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
             1 -> RightTriangle(Random.nextDouble(FROM, TO), Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
             2 -> Rectangle(Random.nextDouble(FROM, TO), Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
-            3 -> Square(Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
+            //3 -> Square(Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
             else -> IsoscelesTrapezoid(Random.nextDouble(FROM, TO), Random.nextDouble(FROM, TO),
                 Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
         }
