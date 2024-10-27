@@ -12,16 +12,19 @@ import mate.academy.model.Square
 const val FROM = 1.0
 const val TO = 10.0
 const val DEFAULT_RADIUS = 10.0
-const val FIGURE_COUNT = 5
 
 class FigureSupplier {
+    private val figureTypes = listOf("Square", "Rectangle", "RightTriangle", "Circle", "IsoscelesTrapezoid")
+
     fun getRandomFigure(): Figure {
         val colorSupplier = ColorSupplier()
-        return when (Random.nextInt(FIGURE_COUNT)) {
-            0 -> Circle(Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
-            1 -> RightTriangle(Random.nextDouble(FROM, TO), Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
-            2 -> Rectangle(Random.nextDouble(FROM, TO), Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
-            //3 -> Square(Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
+        return when (figureTypes.random()) {
+            "Circle" -> Circle(Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
+            "RightTriangle" -> RightTriangle(Random.nextDouble(FROM, TO), Random.nextDouble(FROM, TO),
+                colorSupplier.getRandomColor())
+            "Rectangle" -> Rectangle(Random.nextDouble(FROM, TO), Random.nextDouble(FROM, TO),
+                colorSupplier.getRandomColor())
+            "Square" -> Square(Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
             else -> IsoscelesTrapezoid(Random.nextDouble(FROM, TO), Random.nextDouble(FROM, TO),
                 Random.nextDouble(FROM, TO), colorSupplier.getRandomColor())
         }
