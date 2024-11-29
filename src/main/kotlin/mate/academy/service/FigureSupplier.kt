@@ -9,8 +9,9 @@ import mate.academy.RightTriangle
 import mate.academy.Square
 import kotlin.random.Random
 
-const val MIN_RANDOM_VALUE = 1
-const val MAX_RANDOM_VALUE = 10
+const val MIN_RANDOM_DIMENSION = 1
+const val MAX_RANDOM_DIMENSION = 10
+
 const val NUM_FIGURE_TYPES = 5
 
 class FigureSupplier {
@@ -18,19 +19,19 @@ class FigureSupplier {
     fun getRandomFigure(): Figure {
         val colorSupplier = ColorSupplier()
         return when (Random.nextInt(NUM_FIGURE_TYPES)) {
-            0 -> Square((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+            0 -> Square((MIN_RANDOM_DIMENSION..MAX_RANDOM_DIMENSION).random().toDouble(),
                 colorSupplier.getRandomColor())
-            1 -> Rectangle((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
-                (MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+            1 -> Rectangle((MIN_RANDOM_DIMENSION..MAX_RANDOM_DIMENSION).random().toDouble(),
+                (MIN_RANDOM_DIMENSION..MAX_RANDOM_DIMENSION).random().toDouble(),
                 colorSupplier.getRandomColor())
-            2 -> RightTriangle((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
-                (MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+            2 -> RightTriangle((MIN_RANDOM_DIMENSION..MAX_RANDOM_DIMENSION).random().toDouble(),
+                (MIN_RANDOM_DIMENSION..MAX_RANDOM_DIMENSION).random().toDouble(),
                 colorSupplier.getRandomColor())
-            3 -> Circle((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+            3 -> Circle((MIN_RANDOM_DIMENSION..MAX_RANDOM_DIMENSION).random().toDouble(),
                 colorSupplier.getRandomColor())
-            4 -> IsoscelesTrapezoid((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
-                (MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
-                (MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+            4 -> IsoscelesTrapezoid((MIN_RANDOM_DIMENSION..MAX_RANDOM_DIMENSION).random().toDouble(),
+                (MIN_RANDOM_DIMENSION..MAX_RANDOM_DIMENSION).random().toDouble(),
+                (MIN_RANDOM_DIMENSION..MAX_RANDOM_DIMENSION).random().toDouble(),
                 colorSupplier.getRandomColor())
             else -> throw IllegalArgumentException("Invalid figure type")
         }
