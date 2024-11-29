@@ -9,19 +9,28 @@ import mate.academy.RightTriangle
 import mate.academy.Square
 import kotlin.random.Random
 
+const val MIN_RANDOM_VALUE = 1
+const val MAX_RANDOM_VALUE = 10
+
 class FigureSupplier {
 
     fun getRandomFigure(): Figure {
         val colorSupplier = ColorSupplier()
         return when (Random.nextInt(5)) {
-            0 -> Square((1..10).random().toDouble(), colorSupplier.getRandomColor())
-            1 -> Rectangle((1..10).random().toDouble(), (1..10).random().toDouble(),
+            0 -> Square((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
                 colorSupplier.getRandomColor())
-            2 -> RightTriangle((1..10).random().toDouble(), (1..10).random().toDouble(),
+            1 -> Rectangle((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+                (MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
                 colorSupplier.getRandomColor())
-            3 -> Circle((1..10).random().toDouble(), colorSupplier.getRandomColor())
-            4 -> IsoscelesTrapezoid((1..10).random().toDouble(), (1..10).random().toDouble(),
-                (1..10).random().toDouble(), colorSupplier.getRandomColor())
+            2 -> RightTriangle((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+                (MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+                colorSupplier.getRandomColor())
+            3 -> Circle((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+                colorSupplier.getRandomColor())
+            4 -> IsoscelesTrapezoid((MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+                (MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+                (MIN_RANDOM_VALUE..MAX_RANDOM_VALUE).random().toDouble(),
+                colorSupplier.getRandomColor())
             else -> throw IllegalArgumentException("Invalid figure type")
         }
     }
