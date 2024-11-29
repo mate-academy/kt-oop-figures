@@ -56,7 +56,7 @@ class RightTriangle(val firstLeg: Double, val secondLeg: Double, override var co
     }
 
     override fun draw() {
-        println("Right Triangle with base: $firstLeg, height: secondLeg, " +
+        println("Right Triangle with base: $firstLeg, height: $secondLeg, " +
                 "color: $color, area: ${getArea()}")
     }
 }

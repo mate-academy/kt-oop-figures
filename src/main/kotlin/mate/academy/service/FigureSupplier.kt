@@ -1,9 +1,9 @@
 package mate.academy.service
 
+import mate.academy.model.Color
 import mate.academy.Circle
 import mate.academy.Figure
 import mate.academy.IsoscelesTrapezoid
-import mate.academy.model.Color
 import mate.academy.Rectangle
 import mate.academy.RightTriangle
 import mate.academy.Square
