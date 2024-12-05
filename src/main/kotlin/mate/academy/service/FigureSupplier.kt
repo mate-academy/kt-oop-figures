@@ -16,11 +16,14 @@ const val TWO = 2
 const val THREE = 3
 const val FOUR = 4
 const val FIVE = 5
-const val DEFAULTRADIUS = 10.0
+const val DEFAULT_RADIUS = 10.0
 
 class FigureSupplier {
+
+    private val colorSupplier = ColorSupplier()
+
     fun getRandomFigure(): Figure {
-        val colorSupplier = ColorSupplier()
+
         val randomColor = colorSupplier.getRandomColor()
 
         return when ((ONE..FIVE).random()) {
@@ -39,6 +42,6 @@ class FigureSupplier {
     }
 
     fun getDefaultFigure(): Figure {
-        return Circle(Color.WHITE, DEFAULTRADIUS)
+        return Circle(Color.WHITE, DEFAULT_RADIUS)
     }
 }
