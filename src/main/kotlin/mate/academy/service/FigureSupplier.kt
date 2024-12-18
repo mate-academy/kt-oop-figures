@@ -12,6 +12,7 @@ import kotlin.random.Random
 const val MIN_SIZE = 1.0
 const val MAX_SIZE = 10.0
 const val DEFAULT_RADIUS = 10.0
+val DEFAULT_COLOR = Color.WHITE
 const val NUM_FIGURE_TYPES = 5
 
 const val SQUARE = 0
@@ -38,6 +39,6 @@ class FigureSupplier {
     }
 
     fun getDefaultFigure(): Figure {
-        return Circle(Color.WHITE, DEFAULT_RADIUS)
+        return Circle(DEFAULT_COLOR, DEFAULT_RADIUS)
     }
 }

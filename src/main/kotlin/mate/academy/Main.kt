@@ -12,9 +12,9 @@ fun main() {
 
     val figures: Array<Figure> = Array(FIGURES_SIZE) { index ->
         if (index < MAX_INDEX) {
-            figureSupplier.getRandomFigure()  // Генерація випадкових фігур
+            figureSupplier.getRandomFigure()
         } else {
-            figureSupplier.getDefaultFigure()  // Дефолтні фігури
+            figureSupplier.getDefaultFigure()
         }
     }
 
