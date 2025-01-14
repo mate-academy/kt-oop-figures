@@ -15,11 +15,12 @@ const val CIRCLE_VAL: Int = 1
 const val TRAPEZOID_VAL: Int = 2
 const val RECTANGLE_VAL: Int = 3
 const val RIGHT_TRIANGLE_VAL: Int = 4
+const val SQUARE_VAL: Int = 5
 
 class FigureSupplier {
-    fun getRandomFigure(num: Int): Figure {
-        val colorSupplier: ColorSupplier = ColorSupplier()
+    private val colorSupplier: ColorSupplier = ColorSupplier()
 
+    fun getRandomFigure(num: Int): Figure {
         return when(num) {
             CIRCLE_VAL -> Circle(colorSupplier.getRandomColor(), getRandomNum())
 
@@ -29,8 +30,9 @@ class FigureSupplier {
 
             RIGHT_TRIANGLE_VAL -> RightTriangle(colorSupplier.getRandomColor(), getRandomNum())
 
-            else -> Square(colorSupplier.getRandomColor(), getRandomNum())
+            SQUARE_VAL -> Square(colorSupplier.getRandomColor(), getRandomNum())
 
+            else -> getDefaultFigure()
         }
     }
 

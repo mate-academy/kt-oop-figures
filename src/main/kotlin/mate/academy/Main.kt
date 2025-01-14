@@ -12,7 +12,7 @@ fun main() {
     val figures: Array<Figure?> = Array(ARRAY_SIZE) {null}
 
     for (i in 0 until ARRAY_SIZE) {
-        if (i < 2) {
+        if (i < ARRAY_SIZE / 2) {
             figures[i] = figureSupplier.getRandomFigure((MIN_VAL..MAX_VAL).random())
         } else {
             figures[i] = figureSupplier.getDefaultFigure()
