@@ -10,8 +10,10 @@ import mate.academy.model.Square
 import kotlin.random.Random
 
 private const val DEFAULT_CIRCLE_RADIUS = 10
-private const val RANDOM_START_INT = 1
-private const val RANDOM_END_INT = 100
+private const val RANDOM_MIN_INT = 1
+private const val RANDOM_MAX_INT = 100
+private const val RANDOM_MIN_DOUBLE = 1.0
+private const val RANDOM_MAX_DOUBLE = 100.0
 
 class FigureSupplier(val colorSupplier: ColorSupplier) {
     private val figureList = listOf(
@@ -31,34 +33,34 @@ class FigureSupplier(val colorSupplier: ColorSupplier) {
     }
 
     private fun createRandomCircle(): Circle {
-        return Circle(colorSupplier.getRandomColor(), Random.nextInt(RANDOM_START_INT, RANDOM_END_INT))
+        return Circle(colorSupplier.getRandomColor(), Random.nextInt(RANDOM_MIN_INT, RANDOM_MAX_INT))
     }
 
     private fun createRandomSquare(): Square {
-        return Square(colorSupplier.getRandomColor(), Random.nextInt(RANDOM_START_INT, RANDOM_END_INT))
+        return Square(colorSupplier.getRandomColor(), Random.nextInt(RANDOM_MIN_INT, RANDOM_MAX_INT))
     }
 
     private fun createRandomRectangle(): Rectangle {
         return Rectangle(
-            colorSupplier.getRandomColor(), Random.nextInt(RANDOM_START_INT, RANDOM_END_INT), Random.nextInt(
-                RANDOM_START_INT, RANDOM_END_INT
+            colorSupplier.getRandomColor(), Random.nextInt(RANDOM_MIN_INT, RANDOM_MAX_INT), Random.nextInt(
+                RANDOM_MIN_INT, RANDOM_MAX_INT
             )
         )
     }
 
     private fun createRandomIsoscelesTrapezoid(): IsoscelesTrapezoid {
         return IsoscelesTrapezoid(
-            colorSupplier.getRandomColor(), Random.nextInt(RANDOM_START_INT, RANDOM_END_INT), Random.nextInt(
-                RANDOM_START_INT, RANDOM_END_INT
-            ), Random.nextInt(RANDOM_START_INT, RANDOM_END_INT)
+            colorSupplier.getRandomColor(), Random.nextInt(RANDOM_MIN_INT, RANDOM_MAX_INT), Random.nextInt(
+                RANDOM_MIN_INT, RANDOM_MAX_INT
+            ), Random.nextInt(RANDOM_MIN_INT, RANDOM_MAX_INT)
         )
     }
 
     private fun createRandomRightTriangle(): RightTriangle {
         return RightTriangle(
             colorSupplier.getRandomColor(),
-            Random.nextDouble(1.0, 100.0),
-            Random.nextDouble(1.0, 100.0)
+            Random.nextDouble(RANDOM_MIN_DOUBLE, RANDOM_MAX_DOUBLE),
+            Random.nextDouble(RANDOM_MIN_DOUBLE, RANDOM_MAX_DOUBLE)
         )
     }
 }
