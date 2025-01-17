@@ -1,7 +1,9 @@
 package mate.academy.model
 
-open class Figure(val color: Color) {
-    open fun draw() {
+import mate.academy.service.Drawable
+
+open class Figure(val color: Color) : Drawable {
+    override fun draw() {
         println("Figure: ${this.javaClass.name.lowercase()}, color: $color")
     }
 }
