@@ -11,7 +11,8 @@ import kotlin.random.Random
 
 private const val DEFAULT_CIRCLE_RADIUS = 10
 private const val RANDOM_MIN_INT = 1
-private const val RANDOM_MAX_INT = 100
+private const val RANDOM_MAX_INT = Int.MAX_VALUE
+
 
 class FigureSupplier(val colorSupplier: ColorSupplier) {
     private val figureList = listOf(

@@ -12,6 +12,15 @@ fun main() {
 
     val figuresArray = mutableListOf<Figure>()
 
+    generateFigures(figuresArray, figureSupplier)
+
+    figuresArray.forEach { it.draw() }
+}
+
+private fun generateFigures(
+    figuresArray: MutableList<Figure>,
+    figureSupplier: FigureSupplier
+) {
     while (figuresArray.size < FIGURE_ARRAY_MAX_SIZE / RANDOM_FIGURE_DIVIDER) {
         figuresArray.add(figureSupplier.getRandomFigure())
     }
@@ -19,6 +28,4 @@ fun main() {
     while (figuresArray.size < FIGURE_ARRAY_MAX_SIZE) {
         figuresArray.add(figureSupplier.getDefaultFigure())
     }
-
-    figuresArray.forEach { it.draw() }
 }
