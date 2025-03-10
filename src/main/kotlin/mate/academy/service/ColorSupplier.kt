@@ -7,4 +7,8 @@ class ColorSupplier {
     fun getRandomColor(): Color {
         return Color.values()[Random.nextInt(Color.values().size)]
     }
+
+    fun getWhiteColor(): Color {
+        return Color.WHITE
+    }
 }
