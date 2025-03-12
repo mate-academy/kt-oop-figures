@@ -7,7 +7,8 @@ class IsoscelesTrapezoid(
     private val height: Double
 ) : Figure(color) {
     override fun draw(): String {
-        return "Figure: isosceles trapezoid, area: ${getArea()} sq. units, base1: $base1 units, base2: $base2 units, height: $height units, color: $color"
+        return "Figure: isosceles trapezoid, area: ${getArea()} sq. units, base1: $base1 units, "
+            .plus("base2: $base2 units, height: $height units, color: $color")
     }
 
     override fun getArea(): Double {
