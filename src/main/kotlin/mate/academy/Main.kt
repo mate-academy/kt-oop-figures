@@ -1,20 +1,20 @@
 package mate.academy
 
+import mate.academy.model.Figure
 import mate.academy.service.FigureSupplier
-import mate.academy.service.ONE
-import mate.academy.service.THREE
+import mate.academy.service.TWO
 
 const val NUMBER_OF_FIGURES = 6
 
 fun main() {
-    val figure = FigureSupplier()
+    val supplier = FigureSupplier()
 
-    for (i in ONE.. NUMBER_OF_FIGURES) {
-        if (i <= THREE) {
-            println(figure.getRandomFigure().draw())
+    val figures: Array<Figure> = Array(NUMBER_OF_FIGURES) { index ->
+        if (index < NUMBER_OF_FIGURES / TWO) {
+            supplier.getRandomFigure()
         } else {
-            println(figure.getDefaultFigure().draw())
+            supplier.getDefaultFigure()
         }
-
     }
+    figures.forEach { it.draw() }
 }
