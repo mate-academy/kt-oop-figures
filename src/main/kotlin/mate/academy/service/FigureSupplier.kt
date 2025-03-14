@@ -9,7 +9,6 @@ import mate.academy.model.RightRectangle
 import mate.academy.model.Square
 import kotlin.random.Random
 
-const val NUMBER_OF_FIGURES = 6
 const val ONE = 1
 const val TWO = 2
 const val THREE = 3
@@ -23,7 +22,7 @@ class FigureSupplier {
     private val supplier = ColorSupplier()
 
     fun getRandomFigure(): Figure {
-        return when((ONE..NUMBER_OF_FIGURES).random()) {
+        return when((ONE..FIVE).random()) {
             ONE -> Circle(Random.nextDouble(MIN, MAX) ,supplier.getRandomColor())
             TWO -> IsoscelesTrapezoid(Random.nextDouble(MIN, MAX), Random.nextDouble(MIN, MAX),
                     Random.nextDouble(MIN, MAX), supplier.getRandomColor())
@@ -32,11 +31,11 @@ class FigureSupplier {
             FOUR -> RightRectangle(Random.nextDouble(MIN, MAX), Random.nextDouble(MIN, MAX),
                     supplier.getRandomColor())
             FIVE -> Square(Random.nextDouble(MIN, MAX), supplier.getRandomColor())
-            else -> getDefaultFigure()
+            else -> error("Some mistakes")
         }
     }
 
-    private fun getDefaultFigure(): Figure {
+    fun getDefaultFigure(): Figure {
         return Circle(DEFAULT_RADIUS, supplier.getRandomColor())
     }
 }
