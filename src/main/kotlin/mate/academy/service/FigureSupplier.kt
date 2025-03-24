@@ -1,6 +1,12 @@
 package mate.academy.service
 
-import mate.academy.model.*
+import mate.academy.model.Circle
+import mate.academy.model.Color
+import mate.academy.model.Figure
+import mate.academy.model.IsoscelesTrapezoid
+import mate.academy.model.Rectangle
+import mate.academy.model.RightTriangle
+import mate.academy.model.Square
 import kotlin.math.round
 import kotlin.random.Random
 
@@ -17,7 +23,6 @@ class FigureSupplier {
      */
     fun getRandomFigure(): Figure {
         val figure = figuresList.random().java
-
         return when (figure) {
             Square::class.java -> {
                 Square(colorSupplier.getRandomColor(), getRundomDoubleWithPrecision())
@@ -64,4 +69,6 @@ class FigureSupplier {
     fun getDefaultFigure(): Figure = Circle(Color.WHITE, DEFAULT_RADIUS)
 }
 
-fun getRundomDoubleWithPrecision(): Double = round(Random.nextDouble(MAX_NUMBER * PRECISION_NUMBER)) / PRECISION_NUMBER;
+fun getRundomDoubleWithPrecision(): Double {
+    return round(Random.nextDouble(MAX_NUMBER * PRECISION_NUMBER)) / PRECISION_NUMBER
+}

@@ -1,5 +1,7 @@
 package mate.academy.model
 
+const val HALF = 0.5
+
 sealed class Figure(val color: Color) : Draw {
     abstract fun getArea(): Double
 }
@@ -20,7 +22,8 @@ class Square(color: Color, var side: Double) : Figure(color) {
 class Rectangle(color: Color, var length: Double, var width: Double) : Figure(color) {
 
     override fun draw() {
-        println("rectangle, area: ${"%.2f".format(getArea())} sq. units, length: ${length} units, width: ${width} units, color: ${color}")
+        println("rectangle, area: ${"%.2f".format(getArea())} sq. units, length: ${length} units, " +
+                "width: ${width} units, color: ${color}")
     }
 
     override fun getArea(): Double = length * width
@@ -36,20 +39,21 @@ class Circle(color: Color, var radius: Double) : Figure(color) {
 
 class RightTriangle(color: Color, var firstLeg: Double, var secondLeg: Double) : Figure(color) {
     override fun draw() {
-        println("right triangle, area: ${"%.2f".format(getArea())} sq. units, firstLeg: ${firstLeg} units, secondLeg: ${secondLeg} units, color: ${color}")
+        println("right triangle, area: ${"%.2f".format(getArea())} sq. units, firstLeg: ${firstLeg} units, " +
+                "secondLeg: ${secondLeg} units, color: ${color}")
     }
 
-    override fun getArea(): Double = firstLeg * secondLeg * 0.5
+    override fun getArea(): Double = firstLeg * secondLeg * HALF
 }
 
 class IsoscelesTrapezoid(color: Color, var topSide: Double, var bottomSide: Double, var height: Double) :
     Figure(color) {
     override fun draw() {
         println(
-            "isosceles trapezoid, area: ${"%.2f".format(getArea())} sq. units, topSide: ${topSide} units, bottomSide: ${bottomSide} units, " +
-                    "height: ${height} units, color: ${color}"
+            "isosceles trapezoid, area: ${"%.2f".format(getArea())} sq. units, topSide: ${topSide} units, " +
+                    "bottomSide: ${bottomSide} units, height: ${height} units, color: ${color}"
         )
     }
 
-    override fun getArea(): Double = (topSide + bottomSide) * 0.5 * height
+    override fun getArea(): Double = (topSide + bottomSide) * HALF * height
 }
