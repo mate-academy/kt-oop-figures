@@ -25,35 +25,35 @@ class FigureSupplier {
         val figure = figuresList.random().java
         return when (figure) {
             Square::class.java -> {
-                Square(colorSupplier.getRandomColor(), getRundomDoubleWithPrecision())
+                Square(colorSupplier.getRandomColor(), getRandomDoubleWithPrecision())
             }
 
             Rectangle::class.java -> {
                 Rectangle(
                     colorSupplier.getRandomColor(),
-                    getRundomDoubleWithPrecision(),
-                    getRundomDoubleWithPrecision()
+                    getRandomDoubleWithPrecision(),
+                    getRandomDoubleWithPrecision()
                 )
             }
 
             Circle::class.java -> {
-                Circle(colorSupplier.getRandomColor(), getRundomDoubleWithPrecision())
+                Circle(colorSupplier.getRandomColor(), getRandomDoubleWithPrecision())
             }
 
             RightTriangle::class.java -> {
                 RightTriangle(
                     colorSupplier.getRandomColor(),
-                    getRundomDoubleWithPrecision(),
-                    getRundomDoubleWithPrecision()
+                    getRandomDoubleWithPrecision(),
+                    getRandomDoubleWithPrecision()
                 )
             }
 
             IsoscelesTrapezoid::class.java -> {
                 IsoscelesTrapezoid(
                     colorSupplier.getRandomColor(),
-                    getRundomDoubleWithPrecision(),
-                    getRundomDoubleWithPrecision(),
-                    getRundomDoubleWithPrecision()
+                    getRandomDoubleWithPrecision(),
+                    getRandomDoubleWithPrecision(),
+                    getRandomDoubleWithPrecision()
                 )
             }
 
@@ -69,6 +69,6 @@ class FigureSupplier {
     fun getDefaultFigure(): Figure = Circle(Color.WHITE, DEFAULT_RADIUS)
 }
 
-fun getRundomDoubleWithPrecision(): Double {
+fun getRandomDoubleWithPrecision(): Double {
     return round(Random.nextDouble(MAX_NUMBER * PRECISION_NUMBER)) / PRECISION_NUMBER
 }
