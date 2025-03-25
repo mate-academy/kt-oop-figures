@@ -6,8 +6,6 @@ import mate.academy.model.Rectangle
 import mate.academy.model.RightTriangle
 import mate.academy.model.Square
 import mate.academy.model.IsoscelesTrapezoid
-import mate.academy.model.colorSupplier
-import mate.academy.model.propertiesSupplier
 import kotlin.random.Random
 
 const val COUNT_TYPE_FIGURES = 5
@@ -20,6 +18,9 @@ const val DEF_COLOUR = "white"
 const val DEF_SIDE = 10.0
 
 class FigureSupplier {
+    val colorSupplier: ColorSupplier = ColorSupplier()
+    val propertiesSupplier: PropertiesSupplier = PropertiesSupplier()
+
     fun getRandomFigure(): Figure {
         return when (Random.nextInt(COUNT_TYPE_FIGURES)) {
             ZERO -> Square(colorSupplier.getRandomColor().toString().lowercase(),

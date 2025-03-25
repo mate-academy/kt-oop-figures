@@ -12,7 +12,7 @@ data class IsoscelesTrapezoid(
 
     override fun draw(): String {
         return "Figure: isosceles trapezoid, area: ${"%.1f".format(area())} sq. units, " +
-                "firstBase: $base units, secondBase: $base units, " +
+                "firstBase: $base units, secondBase: ${secondBase}base units, " +
                 "height: $height units, color: $color"
     }
 }
