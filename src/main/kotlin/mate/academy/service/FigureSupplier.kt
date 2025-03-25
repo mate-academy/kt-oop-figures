@@ -10,10 +10,10 @@ import mate.academy.model.Square
 import kotlin.math.round
 import kotlin.random.Random
 
-const val MAX_NUMBER = 30.0
-const val PRECISION_NUMBER = 100
-const val DEFAULT_RADIUS = 10.0
-val figuresList = Figure::class.sealedSubclasses
+private const val MAX_NUMBER = 30.0
+private const val PRECISION_NUMBER = 100
+private const val DEFAULT_RADIUS = 10.0
+private val figuresList = Figure::class.sealedSubclasses
 
 class FigureSupplier {
     val colorSupplier = ColorSupplier()

@@ -3,7 +3,7 @@ package mate.academy
 import mate.academy.model.Figure
 import mate.academy.service.FigureSupplier
 
-const val ARRAY_SIZE = 10
+private const val ARRAY_SIZE = 10
 
 fun main() {
     val figuresArray = ArrayList<Figure>(ARRAY_SIZE)
