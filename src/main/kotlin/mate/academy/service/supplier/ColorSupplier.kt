@@ -1,4 +1,4 @@
-package mate.academy.service
+package mate.academy.service.supplier
 
 import mate.academy.model.Color
 import kotlin.random.Random
