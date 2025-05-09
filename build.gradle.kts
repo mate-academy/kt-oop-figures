@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 plugins {
     kotlin("jvm") version "1.8.0"
     application
@@ -20,7 +22,7 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(17)
 }
 
 application {
