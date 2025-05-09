@@ -5,5 +5,7 @@ enum class Color {
     BLUE,
     GREEN,
     WHITE,
-    BLACK
+    BLACK;
+
+    fun getName() = name.lowercase()
 }
