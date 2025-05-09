@@ -1,6 +1,5 @@
-package mate.academy.service
+package mate.academy.supplier
 
-import mate.academy.model.Color
 import kotlin.random.Random
 
 class ColorSupplier {
