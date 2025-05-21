@@ -10,9 +10,9 @@ class IsoscelesTrapezoid(val lengthFirstBase: Int,
     }
 
     override fun draw() {
-        println("Figure: square, area: " + getArea() + " sq. units, lengthFirstBase: "
+        println("Figure: isosceles trapezoid, area: " + getArea() + " sq. units, lengthFirstBase: "
                 + "$lengthFirstBase units, lengthSecondBase: $lengthSecondBase units, "
-                + "heightTrapezoid: $lengthSecondBase units, color: $color")
+                + "heightTrapezoid: $heightTrapezoid units, color: $color")
 
     }
 }

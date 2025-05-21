@@ -8,7 +8,7 @@ class RightTriangle(val firstLeg: Int, val secondLeg: Int, val hypotenuse: Int, 
     }
 
     override fun draw() {
-        println("Figure: square, area: " + getArea() + " sq. units, firstLeg: $firstLeg"
+        println("Figure: right triangle, area: " + getArea() + " sq. units, firstLeg: $firstLeg"
                 + " units, secondLeg: $secondLeg units, hypotenuse: $hypotenuse"
                 + " units, color: $color");
     }

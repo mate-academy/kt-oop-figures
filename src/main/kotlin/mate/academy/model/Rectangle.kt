@@ -7,7 +7,7 @@ class Rectangle(val width: Int, val height: Int, color: Color) : Figure(color) {
     }
 
     override fun draw() {
-        println("Figure: square, area: " + getArea() + " sq. units, width: $width"
+        println("Figure: rectangle, area: " + getArea() + " sq. units, width: $width"
                 + " units, height: $height units, color: $color");
     }
 }
