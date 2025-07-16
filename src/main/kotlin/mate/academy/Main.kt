@@ -9,7 +9,7 @@ fun main() {
     val colorSupplier = ColorSupplier();
     val figureSupplier = FigureSupplier(colorSupplier);
 
-    var figureArray  = Array<Figure>(6) {
+    val figureArray : Array<Figure> = Array<Figure>(6) {
         i -> if (i < 5) figureSupplier.getRandomFigure()
     else figureSupplier.getDefaultFigure()
     }

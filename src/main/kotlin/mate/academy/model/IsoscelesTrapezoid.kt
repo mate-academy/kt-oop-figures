@@ -6,7 +6,7 @@ class IsoscelesTrapezoid(
     private val side2 : Double,
     private val height : Double
 ) : Figure {
-    override fun area(): Double = ((side1 * side2) / TWO) * height
+    override fun area(): Double = ((side1 + side2)  / TWO) * height
 
     override fun draw() {
         println("Figure: isosceles trapezoid, area: ${area()} sq. units, "
