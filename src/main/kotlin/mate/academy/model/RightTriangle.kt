@@ -8,6 +8,7 @@ class RightTriangle(
     override fun getArea(): Double = (firstLeg * secondLeg) / 2
 
     override fun draw() {
-        println("Figure: right triangle, area: ${getArea()} sq. units, firstLeg: $firstLeg, secondLeg: $secondLeg, color: $color")
+        println("Figure: right triangle, area: ${getArea()} sq. units, "
+                + "firstLeg: $firstLeg, secondLeg: $secondLeg, color: $color")
     }
 }

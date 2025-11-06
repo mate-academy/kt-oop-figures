@@ -1,9 +1,15 @@
 package mate.academy.service
 
-import mate.academy.model.*
+import mate.academy.model.Circle
+import mate.academy.model.Color
+import mate.academy.model.IsoscelesTrapezoid
+import mate.academy.model.Rectangle
+import mate.academy.model.RightTriangle
+import mate.academy.model.Square
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import java.util.Arrays
 
 class FigureSupplierTest {
 
@@ -33,6 +39,6 @@ class FigureSupplierTest {
     @Test
     fun getRandomFigure_ShouldHaveColorFromEnum() {
         val figure = figureSupplier.getRandomFigure()
-        assertTrue(Color.values().contains(figure.color))
+        assertTrue(Arrays.asList(*Color.values()).contains(figure.color))
     }
 }
