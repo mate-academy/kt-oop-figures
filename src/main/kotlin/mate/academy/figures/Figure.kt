@@ -9,5 +9,5 @@ abstract class Figure(val color: Color, val type: String)
 
     abstract override fun draw()
 
-    override fun area(): Double = 0.0
+    abstract override fun area(): Double
 }
