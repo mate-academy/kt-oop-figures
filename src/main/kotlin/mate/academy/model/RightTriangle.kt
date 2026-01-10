@@ -5,7 +5,7 @@ class RightTriangle(color: Color, val legA: Double, val legB: Double) : Figure(c
 
     override fun draw() {
         println(
-            "Figure: Right triangle, area: ${area().f2()} sq. units, firstLeg: ${legB.f2()} units, " +
+            "Figure: Right triangle, area: ${area().f2()} sq. units, firstLeg: ${legA.f2()} units, " +
                     "secondLeg: ${legB.f2()} units, color: $color "
         )
     }

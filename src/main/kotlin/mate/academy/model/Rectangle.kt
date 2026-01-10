@@ -6,7 +6,7 @@ class Rectangle(color: Color, val width: Double, val height: Double) : Figure(co
     override fun draw() {
         println(
             "Figure: rectangle, area: ${area().f2()} sq. units, width: ${width.f2()} units, " +
-                    "height: ${height.f2()} units color: blue "
+                    "height: ${height.f2()} units color: $color "
         )
     }
 }
