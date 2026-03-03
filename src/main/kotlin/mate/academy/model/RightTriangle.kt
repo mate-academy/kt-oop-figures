@@ -1,6 +1,6 @@
 package mate.academy.model
 
-const val TWO = 2
+import kotlin.math.round
 
 class RightTriangle(val color: Color,
                     val firstLeg: Double,
@@ -12,6 +12,7 @@ class RightTriangle(val color: Color,
     }
 
     override fun getArea(): Double {
-        return (firstLeg * secondLeg) / TWO
+        val result = (firstLeg * secondLeg) / TWO
+        return round(result * SIZE_LIMIT) / SIZE_LIMIT
     }
 }

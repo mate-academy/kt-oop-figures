@@ -11,21 +11,22 @@ import mate.academy.model.Square
 import kotlin.math.round
 import kotlin.random.Random
 
-const val SIZELIMIT = 100
-const val DEFOULTRADIUS = 10
+const val SIZE_LIMIT = 100
+const val DEFAULT_RADIUS = 10
 
 class FigureSupplier {
+    val colorSupplier = ColorSupplier()
+
     fun getRandomFigure(): Figure {
         fun getRandomType(): FigureTypes {
             return FigureTypes.values()[Random.nextInt(FigureTypes.values().size)]
         }
 
         fun getRandomNumber(): Double {
-            val number = Random.nextDouble(SIZELIMIT.toDouble())
-            return round(number * SIZELIMIT) / SIZELIMIT
+            val number = Random.nextDouble(SIZE_LIMIT.toDouble())
+            return round(number * SIZE_LIMIT) / SIZE_LIMIT
         }
 
-        val colorSupplier = ColorSupplier()
         val figureType = getRandomType()
 
         return when (figureType) {
@@ -55,6 +56,6 @@ class FigureSupplier {
     }
 
     fun getDefaultFigure(): Figure {
-        return Circle(Color.WHITE, DEFOULTRADIUS)
+        return Circle(Color.WHITE, DEFAULT_RADIUS)
     }
 }

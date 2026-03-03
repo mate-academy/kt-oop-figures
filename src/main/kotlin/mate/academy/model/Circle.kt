@@ -1,6 +1,5 @@
 package mate.academy.model
 
-import mate.academy.service.SIZELIMIT
 import kotlin.math.PI
 import kotlin.math.round
 
@@ -12,6 +11,6 @@ class Circle (val color: Color, val radius: Int): Figure {
 
     override fun getArea(): Double {
         val result = PI * radius * radius
-        return round(result * SIZELIMIT) / SIZELIMIT
+        return round(result * SIZE_LIMIT) / SIZE_LIMIT
     }
 }

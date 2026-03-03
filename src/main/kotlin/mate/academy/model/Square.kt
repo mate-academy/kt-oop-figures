@@ -1,6 +1,5 @@
 package mate.academy.model
 
-import mate.academy.service.SIZELIMIT
 import kotlin.math.round
 
 class Square(val color: Color, val side: Double) : Figure {
@@ -11,6 +10,6 @@ class Square(val color: Color, val side: Double) : Figure {
 
     override fun getArea(): Double {
         val result = side * side
-        return round(result * SIZELIMIT) / SIZELIMIT
+        return round(result * SIZE_LIMIT) / SIZE_LIMIT
     }
 }
