@@ -1,9 +1,17 @@
 package mate.academy.model
 
-class RightTriangle(val color: Color, val area: Double,
-                    val firstLeg: Double, val secondLeg: Double) : Figure {
+const val TWO = 2
+
+class RightTriangle(val color: Color,
+                    val firstLeg: Double,
+                    val secondLeg: Double) : Figure {
     override fun draw() {
-        println("Figure: triangle, area: $area sq. units, firstLeg: $firstLeg units, " +
-                "secondLeg: $secondLeg units, color: ${color.toString().lowercase()}")
+        println("Figure: triangle, firstLeg: $firstLeg units, " +
+                "secondLeg: $secondLeg units, area: ${getArea()} sq. units, " +
+                "color: ${color.toString().lowercase()}")
+    }
+
+    override fun getArea(): Double {
+        return (firstLeg * secondLeg) / TWO
     }
 }

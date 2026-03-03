@@ -37,6 +37,8 @@ class FigureSupplier {
             )
             FigureTypes.ISOSCELESTRAPEZOID -> IsoscelesTrapezoid(
                 colorSupplier.getRandomColor(),
+                getRandomNumber(),
+                getRandomNumber(),
                 getRandomNumber()
             )
             FigureTypes.RECTANGLE -> Rectangle(
@@ -48,7 +50,6 @@ class FigureSupplier {
                 colorSupplier.getRandomColor(),
                 getRandomNumber(),
                 getRandomNumber(),
-                getRandomNumber()
             )
         }
     }
