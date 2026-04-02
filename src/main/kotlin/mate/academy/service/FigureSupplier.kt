@@ -17,38 +17,37 @@ class FigureSupplier {
         private const val FIGURE_TYPES_COUNT = 5
         private const val MIN_SIZE = 1.0
         private const val MAX_SIZE = 10.0
+        private const val DEFAULT_RADIUS = 10.0
     }
+
+    private fun randomSize() = Random.nextDouble(MIN_SIZE, MAX_SIZE)
 
     fun getRandomFigure(): Figure {
         val color = colorSupplier.getRandomColor()
 
         return when (Random.nextInt(FIGURE_TYPES_COUNT)) {
-            0 -> Square(color, Random.nextDouble(MIN_SIZE, MAX_SIZE))
+            0 -> Square(color, randomSize())
             1 -> Rectangle(
                 color,
-                Random.nextDouble(MIN_SIZE, MAX_SIZE),
-                Random.nextDouble(MIN_SIZE, MAX_SIZE)
+                randomSize(),
+                randomSize()
             )
             2 -> RightTriangle(
                 color,
-                Random.nextDouble(MIN_SIZE, MAX_SIZE),
-                Random.nextDouble(MIN_SIZE, MAX_SIZE)
+                randomSize(),
+                randomSize()
             )
-            3 -> Circle(color, Random.nextDouble(MIN_SIZE, MAX_SIZE))
+            3 -> Circle(color, randomSize())
             else -> IsoscelesTrapezoid(
                 color,
-                Random.nextDouble(MIN_SIZE, MAX_SIZE),
-                Random.nextDouble(MIN_SIZE, MAX_SIZE),
-                Random.nextDouble(MIN_SIZE, MAX_SIZE)
+                randomSize(),
+                randomSize(),
+                randomSize()
             )
         }
     }
 
     fun getDefaultFigure(): Figure {
         return Circle(Color.WHITE, DEFAULT_RADIUS)
-    }
-
-    companion object {
-        private const val DEFAULT_RADIUS = 10.0
     }
 }
