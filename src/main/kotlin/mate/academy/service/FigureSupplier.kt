@@ -18,6 +18,11 @@ class FigureSupplier {
         private const val MIN_SIZE = 1.0
         private const val MAX_SIZE = 10.0
         private const val DEFAULT_RADIUS = 10.0
+
+        private const val SQUARE = 0
+        private const val RECTANGLE = 1
+        private const val RIGHT_TRIANGLE = 2
+        private const val CIRCLE = 3
     }
 
     private fun randomSize() = Random.nextDouble(MIN_SIZE, MAX_SIZE)
@@ -26,18 +31,18 @@ class FigureSupplier {
         val color = colorSupplier.getRandomColor()
 
         return when (Random.nextInt(FIGURE_TYPES_COUNT)) {
-            0 -> Square(color, randomSize())
-            1 -> Rectangle(
+            SQUARE -> Square(color, randomSize())
+            RECTANGLE -> Rectangle(
                 color,
                 randomSize(),
                 randomSize()
             )
-            2 -> RightTriangle(
+            RIGHT_TRIANGLE -> RightTriangle(
                 color,
                 randomSize(),
                 randomSize()
             )
-            3 -> Circle(color, randomSize())
+            CIRCLE -> Circle(color, randomSize())
             else -> IsoscelesTrapezoid(
                 color,
                 randomSize(),
