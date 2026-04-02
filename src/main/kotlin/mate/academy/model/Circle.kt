@@ -9,6 +9,7 @@ class Circle(
     override fun getArea(): Double = PI * radius * radius
 
     override fun draw() {
-        println("Figure: circle, area: ${getArea()} sq. units, radius: $radius units, color: $color")
+        println("Figure: circle, area: ${getArea()} sq. " +
+                "units, radius: $radius units, color: $color")
     }
 }
