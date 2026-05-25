@@ -7,7 +7,6 @@ import mate.academy.model.IsoscelesTrapezoid
 import mate.academy.model.Rectangle
 import mate.academy.model.RightTriangle
 import mate.academy.model.Square
-import java.time.chrono.HijrahEra
 
 const val START = 1
 const val FIGURE_SIZE = 5

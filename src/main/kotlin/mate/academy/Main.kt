@@ -15,5 +15,5 @@ fun main() {
         }
     }
 
-    figures.forEach { figure -> println(figure.toString()) }
+    figures.forEach { figure -> println(figure.print()) }
 }
